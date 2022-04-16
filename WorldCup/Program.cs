@@ -19,7 +19,7 @@ namespace WorldCup
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           
+            Application.Run(new Postavke());
 
             try
             {
@@ -43,7 +43,7 @@ namespace WorldCup
             catch (Exception)
             {
 
-                throw;
+                throw new Exception();
             }
 
 

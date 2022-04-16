@@ -1,11 +1,14 @@
 ﻿using DataAccessLayer;
 using DataAccessLayer.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,7 +28,7 @@ namespace WorldCup
             country = FileRepo.LoadFavoriteTeam();
             mecevi = repo.GetMatchesByCountry(country);
             players = repo.GetPlayers(country);
-           
+
 
         }
 
@@ -34,14 +37,14 @@ namespace WorldCup
             statisticsPlayers = LoadStatisticsPlayer();
             AddStatsToFlp();
             AddMatchesToFlp();
-            
+
 
         }
 
         private List<Player> LoadStatisticsPlayer()
         {
             List<Player> playerList = new List<Player>();
-            List<Event> events = ApiRepoMen.GetAllEvents(country,mecevi);
+            List<Event> events = ApiRepoMen.GetAllEvents(country, mecevi);
             foreach (var item in players)
             {
                 foreach (var eventt in events)
@@ -75,13 +78,34 @@ namespace WorldCup
                 ucp.FullName = igrac.name;
                 ucp.Goals = igrac.BrojGolova;
                 ucp.YellowCards = igrac.BrojZutihKartona;
-
+                ucp.PlayerPhoto = GetPhoto(igrac.name);
                 flwPlayerStats.Controls.Add(ucp);
             }
 
         }
 
-      
+        private Image GetPhoto(string name)
+        {
+            ResourceManager MyResourceClass =
+                        new ResourceManager(typeof(MojiResursiPhoto));
+            name = name.Replace(" ", "").ToLower();
+            name = name.Replace("-", "_").ToLower();
+            ResourceSet resourceSet =
+                MyResourceClass.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+            foreach (DictionaryEntry entry in resourceSet)
+            {
+                string resourceKey = entry.Key.ToString();
+                //MessageBox.Show(resourceKey);
+                if (resourceKey.ToLower() == name)
+                {
+                    return (Image)entry.Value;
+
+                }
+
+            }
+            return MojiResursiPhoto.UnkonwPlayer;
+        }
+    
 
         private void AddMatchesToFlp()
         {
@@ -95,7 +119,7 @@ namespace WorldCup
                 ms.Attendance = mec.attendance;
                 ms.HomeTeam = mec.home_team_country;
                 ms.AwayTeam = mec.away_team_country;
-
+                
                 flwAttendence.Controls.Add(ms);
             }
             
@@ -118,11 +142,16 @@ namespace WorldCup
             statisticsPlayers.Sort((x, y) => -x.BrojGolova.CompareTo(y.BrojGolova));
             AddStatsToFlp();
         }
+        private void bntPrint_Click(object sender, EventArgs e)
+        {
 
+        }
         private void Statistika_FormClosing(object sender, FormClosingEventArgs e)
         {
          Application.Exit();
 
         }
+
+        
     }
 }

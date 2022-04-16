@@ -7,3 +7,14 @@ C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\OOP.net\DataAccessLayer\ob
 C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\OOP.net\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\OOP.net\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\OOP.net\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\DataAccessLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\DataAccessLayer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.MojiResursiPhoto.resources
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.GenerateResource.cache

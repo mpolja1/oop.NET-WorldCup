@@ -17,7 +17,7 @@ namespace WorldCup
     {
         private readonly IRepo repo = new ApiRepoMen();
         private readonly IRepo repoW = new ApiRepoWomen();
- 
+        private UCPlayer selectedPlayer;
         public OmiljeniIgraci()
         {
             InitializeComponent();
@@ -72,10 +72,65 @@ namespace WorldCup
                 ucp.ShirtNumber = item.shirt_number;
                 ucp.Position = item.position;
                 ucp.Capitan = item.captain;
+                ucp.PlayerImage = MojiResursiPhoto.UnkonwPlayer;
+                ucp.MouseDoubleClick += FavoritePlayer_click;
+                //ucp.MouseWheel += choosePicture_click;
                 flpAllPlayers.Controls.Add(ucp);
-               
+           
             }
 
+        }
+
+        private void FavoritePlayer_click(object sender, EventArgs e)
+        {
+
+            selectedPlayer = (UCPlayer)sender;
+            
+            if (flpFavoritePlayers.Controls.Count<3)
+            {
+                selectedPlayer.IconFavoritePlayer = MojiResursiPhoto.Star;
+                selectedPlayer.MouseClick += choosePicture_click;
+                flpFavoritePlayers.Controls.Add(selectedPlayer);
+            }
+            else
+            {
+                MessageBox.Show("Maximalni broj igraca je 3");
+            }
+            
+        }
+
+        private void choosePicture_click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Pictures|*.bmp;*.jpg;*.jpeg;*.png;|All files|*.*";
+            ofd.InitialDirectory = Application.StartupPath;
+
+            selectedPlayer = (UCPlayer)sender;
+           
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                // display image in picture box  
+                selectedPlayer.PlayerImage = new Bitmap(ofd.FileName);
+
+            }
+
+        }
+
+        private void picture_click(object sender, EventArgs e)
+        {
+            if (selectedPlayer != null)
+                selectedPlayer.BorderStyle = BorderStyle.None;
+            selectedPlayer = (UCPlayer)sender;
+            selectedPlayer.BorderStyle = BorderStyle.FixedSingle;
+            if (selectedPlayer.BackColor==Color.Yellow)
+            {
+                selectedPlayer.BackColor = Color.Empty; 
+            }
+
+            else
+            {
+                selectedPlayer.BackColor = Color.Yellow;
+            }
         }
 
         private void btnStatistic_Click(object sender, EventArgs e)

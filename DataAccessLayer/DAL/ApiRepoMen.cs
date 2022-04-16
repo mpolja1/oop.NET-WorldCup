@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DataAccessLayer
@@ -32,15 +33,12 @@ namespace DataAccessLayer
                     using (var sr = new StreamReader(s))
                     {
                         var groupresults = sr.ReadToEnd();
-                        var matches = JsonConvert.DeserializeObject<List<GroupResults>>(groupresults);
-                        foreach (var item in matches)
-                        {
-                            list.Add(item);
-                        }
+                        return JsonConvert.DeserializeObject<List<GroupResults>>(groupresults).ToList();
+                       
                     }
                 }
             
-            return list;
+          
         }
         public List<Match> GetMatches()
         {
@@ -56,14 +54,11 @@ namespace DataAccessLayer
                 using (var sr = new StreamReader(s))
                 {
                     var groupresults = sr.ReadToEnd();
-                    var matches = JsonConvert.DeserializeObject<List<Match>>(groupresults);
-                    foreach (var item in matches)
-                    {
-                        list.Add(item);
-                    }
+                    return JsonConvert.DeserializeObject<List<Match>>(groupresults);
+                    
                 }
             }
-            return list;
+            
         }
 
         public List<Results> GetResults()
@@ -90,7 +85,7 @@ namespace DataAccessLayer
             return list;
         }
 
-        public List<Team> GetTeams()
+        public  Task<List<Team>> GetTeams()
         {
             List<Team> list = new List<Team>();
 
@@ -104,14 +99,15 @@ namespace DataAccessLayer
                 using (var sr = new StreamReader(s))
                 {
                     var groupresults = sr.ReadToEnd();
-                    var matches = JsonConvert.DeserializeObject<List<Team>>(groupresults);
-                    foreach (var item in matches)
+                    return Task.Run(() =>
                     {
-                        list.Add(item);
-                    }
+                        return JsonConvert.DeserializeObject<List<Team>>(groupresults);
+                    });
+
                 }
             }
-            return list;
+         
+
         }
         public HashSet<Player> GetPlayers(string name)
         {

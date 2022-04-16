@@ -17,5 +17,10 @@ namespace DataAccessLayer.Models
 
         public override string ToString()
         => $"{country} ({fifa_code})";
+
+        public static implicit operator Team(List<Team> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

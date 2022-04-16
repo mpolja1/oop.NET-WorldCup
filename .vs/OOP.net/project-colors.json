@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f0fd1334-f672-40f0-9824-8e4ce2690f5a": {
+      "ProjectGuid": "f0fd1334-f672-40f0-9824-8e4ce2690f5a",
+      "DisplayName": "ConsoleClient",
+      "ColorIndex": 0
+    },
+    "24338493-cf92-4e2e-9886-8eb474212633": {
+      "ProjectGuid": "24338493-cf92-4e2e-9886-8eb474212633",
+      "DisplayName": "WorldCup",
+      "ColorIndex": 1
+    },
+    "12f21516-b57e-463a-90d3-4e122b5d9e6e": {
+      "ProjectGuid": "12f21516-b57e-463a-90d3-4e122b5d9e6e",
+      "DisplayName": "DataAccessLayer",
+      "ColorIndex": 2
+    },
+    "d52f27cb-b4dd-4ebc-a2b5-88747b59158d": {
+      "ProjectGuid": "d52f27cb-b4dd-4ebc-a2b5-88747b59158d",
+      "DisplayName": "WindowsFormsApp1",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

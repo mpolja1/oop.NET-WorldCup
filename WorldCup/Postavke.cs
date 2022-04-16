@@ -14,7 +14,7 @@ namespace WorldCup
 {
     public partial class Postavke : Form
     {
-       
+
         FileRepo repo = new FileRepo();
         
         public Postavke()

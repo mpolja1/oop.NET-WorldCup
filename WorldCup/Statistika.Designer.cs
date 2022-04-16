@@ -112,6 +112,7 @@
             this.bntPrint.TabIndex = 7;
             this.bntPrint.Text = "Print";
             this.bntPrint.UseVisualStyleBackColor = true;
+            this.bntPrint.Click += new System.EventHandler(this.bntPrint_Click);
             // 
             // Statistika
             // 

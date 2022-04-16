@@ -11,8 +11,9 @@ namespace ConsoleClient
 {
     internal class Program
     {
-     
-        static void Main(string[] args)
+        IRepo repo = new ApiRepoMen();
+        List<Team> teams;
+        static  void Main(string[] args)
         {
 
             //FileRepoMen men = new FileRepoMen();
@@ -60,27 +61,33 @@ namespace ConsoleClient
             FileRepo repofile = new FileRepo();
            
             IRepo repo = new ApiRepoMen();
-            List<Team> teams = repo.GetTeams();
+            ispistimova();
+           
+            
             List<Match> mec = repo.GetMatches();
+            mec.ForEach(Console.WriteLine);
             //mec.ForEach(Console.WriteLine);
             //teams.ForEach(Console.WriteLine);
-            stopwatch.Start();
-            HashSet<Player> igraci = GetPlayers(country, mec);
+            //stopwatch.Start();
+            //HashSet<Player> igraci = GetPlayers(country, mec);
+
+            //List<GroupResults> gr = repo.GetGroupsResults();
+            //gr.ForEach(Console.WriteLine);
 
             // repofile.SaveFavoritePlayers(igraci.ToList());
             //List<Player> igraciii = FileRepo.LoadFavoritePlayer();
             // igraciii.ForEach(Console.WriteLine);
           
-            List<Event> events = GetAllEvents(country,mec);
-            //events.ForEach(Console.WriteLine);
-           
-            List<Player> statistika = LoadGoalsAndCards(igraci, events);
-            statistika.Sort();
-            statistika.ForEach(Console.WriteLine);
-            stopwatch.Stop();
-            TimeSpan sp= stopwatch.Elapsed;
-            Console.WriteLine($"Duration: {sp.TotalMilliseconds}");
-            //igraci.ToList().ForEach(Console.WriteLine); 
+            //List<Event> events = GetAllEvents(country,mec);
+            ////events.ForEach(Console.WriteLine);
+
+            //List<Player> statistika = LoadGoalsAndCards(igraci, events);
+            //statistika.Sort();
+            //statistika.ForEach(Console.WriteLine);
+            //stopwatch.Stop();
+            //TimeSpan sp = stopwatch.Elapsed;
+            //Console.WriteLine($"Duration: {sp.TotalMilliseconds}");
+            //igraci.ToList().ForEach(Console.WriteLine);
 
 
             //List<Player> players = SortByGoalsAndYellowCard(country);
@@ -88,8 +95,15 @@ namespace ConsoleClient
 
         }
 
-
-
+        private  async void Addtimova()
+        {
+            List<Team> timovi= await repo.GetTeams();
+            foreach (var item in timovi)
+            {
+                teams.Add(item);
+            }
+        }
+       
         private static List<Player> LoadGoalsAndCards(HashSet<Player> igraci, List<Event> events)
         {
             List<Player> igracipostatistici = new List<Player>();

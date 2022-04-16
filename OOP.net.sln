@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleClient", "ConsoleClient\ConsoleClient.csproj", "{F0FD1334-F672-40F0-9824-8E4CE2690F5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{D52F27CB-B4DD-4EBC-A2B5-88747B59158D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F0FD1334-F672-40F0-9824-8E4CE2690F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0FD1334-F672-40F0-9824-8E4CE2690F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0FD1334-F672-40F0-9824-8E4CE2690F5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D52F27CB-B4DD-4EBC-A2B5-88747B59158D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D52F27CB-B4DD-4EBC-A2B5-88747B59158D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D52F27CB-B4DD-4EBC-A2B5-88747B59158D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D52F27CB-B4DD-4EBC-A2B5-88747B59158D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

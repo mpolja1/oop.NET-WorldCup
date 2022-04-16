@@ -49,7 +49,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(540, 99);
+            this.label2.Location = new System.Drawing.Point(539, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(147, 20);
             this.label2.TabIndex = 2;
@@ -65,14 +65,16 @@
             // 
             // flpFavoritePlayers
             // 
-            this.flpFavoritePlayers.Location = new System.Drawing.Point(507, 132);
+            this.flpFavoritePlayers.AllowDrop = true;
+            this.flpFavoritePlayers.AutoScroll = true;
+            this.flpFavoritePlayers.Location = new System.Drawing.Point(479, 96);
             this.flpFavoritePlayers.Name = "flpFavoritePlayers";
-            this.flpFavoritePlayers.Size = new System.Drawing.Size(248, 328);
+            this.flpFavoritePlayers.Size = new System.Drawing.Size(299, 356);
             this.flpFavoritePlayers.TabIndex = 4;
             // 
             // btnStatistic
             // 
-            this.btnStatistic.Location = new System.Drawing.Point(579, 494);
+            this.btnStatistic.Location = new System.Drawing.Point(595, 494);
             this.btnStatistic.Name = "btnStatistic";
             this.btnStatistic.Size = new System.Drawing.Size(75, 23);
             this.btnStatistic.TabIndex = 5;

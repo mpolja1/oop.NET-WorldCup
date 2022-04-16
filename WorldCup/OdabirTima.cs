@@ -17,6 +17,8 @@ namespace WorldCup
         private readonly IRepo repo = new ApiRepoMen();
         private readonly IRepo repoW = new ApiRepoWomen();
         FileRepo fileRepo = new FileRepo();
+       
+    
         public OdabirTima()
         {
             InitializeComponent();
@@ -53,11 +55,7 @@ namespace WorldCup
             return Task.Run(() => repoW.GetTeams());
         }
 
-        private Task<List<Team>> GetAsyncMenTeams()
-        {
-            return Task.Run(() => repo.GetTeams());
-        }
-
+ 
         private async void FillAsycWomen()
         {
             var teams = await GetAsyncWomenTeams();
@@ -70,7 +68,7 @@ namespace WorldCup
 
         private async void FillAsycMen()
         {
-            var teams = await GetAsyncMenTeams();
+            var teams = await repo.GetTeams();
             foreach (var team in teams)
             {
                 cbTeamList.Items.Add(team);

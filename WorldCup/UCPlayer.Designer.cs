@@ -43,9 +43,10 @@
             // 
             this.pbPlayerPhoto.ErrorImage = null;
             this.pbPlayerPhoto.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbPlayerPhoto.InitialImage")));
-            this.pbPlayerPhoto.Location = new System.Drawing.Point(14, 17);
+            this.pbPlayerPhoto.Location = new System.Drawing.Point(-2, -2);
             this.pbPlayerPhoto.Name = "pbPlayerPhoto";
-            this.pbPlayerPhoto.Size = new System.Drawing.Size(113, 100);
+            this.pbPlayerPhoto.Size = new System.Drawing.Size(148, 172);
+            this.pbPlayerPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPlayerPhoto.TabIndex = 0;
             this.pbPlayerPhoto.TabStop = false;
             // 
@@ -87,9 +88,10 @@
             // 
             // pbFavoritePlayer
             // 
-            this.pbFavoritePlayer.Location = new System.Drawing.Point(229, 96);
+            this.pbFavoritePlayer.Location = new System.Drawing.Point(221, 119);
             this.pbFavoritePlayer.Name = "pbFavoritePlayer";
             this.pbFavoritePlayer.Size = new System.Drawing.Size(43, 33);
+            this.pbFavoritePlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbFavoritePlayer.TabIndex = 5;
             this.pbFavoritePlayer.TabStop = false;
             // 
@@ -104,8 +106,9 @@
             this.Controls.Add(this.lblShirtNumber);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.pbPlayerPhoto);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "UCPlayer";
-            this.Size = new System.Drawing.Size(291, 132);
+            this.Size = new System.Drawing.Size(276, 168);
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayerPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFavoritePlayer)).EndInit();
             this.ResumeLayout(false);

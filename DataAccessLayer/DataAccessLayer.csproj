@@ -36,6 +36,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,10 +59,49 @@
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Results.cs" />
     <Compile Include="Models\Team.cs" />
+    <Compile Include="MojiResursiPhoto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MojiResursiPhoto.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MojiResursiPhoto.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>MojiResursiPhoto.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ResourcsPhotos\AnteRebic.jpg" />
+    <Content Include="ResourcsPhotos\DomagojVida.jpg" />
+    <Content Include="ResourcsPhotos\DominikLivakovic.jpg" />
+    <Content Include="ResourcsPhotos\DujeCaleta-Car.jpg" />
+    <Content Include="ResourcsPhotos\FilipBradaric.jpg" />
+    <Content Include="ResourcsPhotos\JosipPivaric.jpg" />
+    <Content Include="ResourcsPhotos\LovreKalinic.jpg" />
+    <Content Include="ResourcsPhotos\MarceloBrozovic.jpg" />
+    <Content Include="ResourcsPhotos\MarkoPjaca.jpg" />
+    <Content Include="ResourcsPhotos\MateoKovacic.jpg" />
+    <Content Include="ResourcsPhotos\MilanBadelj.jpg" />
+    <Content Include="ResourcsPhotos\NikolaKalinic.jpg" />
+    <Content Include="ResourcsPhotos\Star.png" />
+    <Content Include="ResourcsPhotos\TinJedvaj.jpg" />
+    <Content Include="ResourcsPhotos\VedranCorluka.jpg" />
+    <None Include="ResourcsPhotos\LukaModric.jpg" />
+    <Content Include="ResourcsPhotos\AndrejKramaric.jpg" />
+    <Content Include="ResourcsPhotos\DanijeSubasic.jpg" />
+    <Content Include="ResourcsPhotos\DejanLovren.jpg" />
+    <Content Include="ResourcsPhotos\IvanPerisic.jpg" />
+    <Content Include="ResourcsPhotos\IvanRakitic.jpg" />
+    <Content Include="ResourcsPhotos\IvanStrinic.jpg" />
+    <Content Include="ResourcsPhotos\MarioMandzukic.jpg" />
+    <Content Include="ResourcsPhotos\SimeVrsaljko.jpg" />
+    <None Include="ResourcsPhotos\UnkonwPlayer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

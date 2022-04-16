@@ -10,7 +10,7 @@ namespace DataAccessLayer
     public interface IRepo
     {
          List<Results>  GetResults();
-        List<Team> GetTeams();
+       Task<List<Team>> GetTeams();
         List<Match> GetMatches();
         List<GroupResults> GetGroupsResults();
 

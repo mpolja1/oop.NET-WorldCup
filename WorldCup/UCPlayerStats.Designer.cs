@@ -39,9 +39,12 @@
             // 
             // pbPlayerPhoto
             // 
-            this.pbPlayerPhoto.Location = new System.Drawing.Point(14, 16);
+            this.pbPlayerPhoto.BackColor = System.Drawing.Color.White;
+            this.pbPlayerPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbPlayerPhoto.Location = new System.Drawing.Point(3, 3);
             this.pbPlayerPhoto.Name = "pbPlayerPhoto";
-            this.pbPlayerPhoto.Size = new System.Drawing.Size(109, 104);
+            this.pbPlayerPhoto.Size = new System.Drawing.Size(120, 123);
+            this.pbPlayerPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPlayerPhoto.TabIndex = 0;
             this.pbPlayerPhoto.TabStop = false;
             // 
@@ -49,7 +52,7 @@
             // 
             this.lblFullName.Location = new System.Drawing.Point(131, 16);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(100, 23);
+            this.lblFullName.Size = new System.Drawing.Size(129, 23);
             this.lblFullName.TabIndex = 1;
             this.lblFullName.Text = "Name";
             // 
@@ -93,15 +96,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BackColor = System.Drawing.Color.Silver;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblYellowCards);
             this.Controls.Add(this.lblGoals);
             this.Controls.Add(this.lblFullName);
             this.Controls.Add(this.pbPlayerPhoto);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "UCPlayerStats";
-            this.Size = new System.Drawing.Size(245, 152);
+            this.Size = new System.Drawing.Size(263, 129);
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayerPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -20,3 +20,25 @@ C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\OOP.net\WorldCup\obj\Debug
 C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\OOP.net\WorldCup\obj\Debug\WorldCup.csproj.CopyComplete
 C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\OOP.net\WorldCup\obj\Debug\WorldCup.exe
 C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\OOP.net\WorldCup\obj\Debug\WorldCup.pdb
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\bin\Debug\WorldCup.exe.config
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\bin\Debug\WorldCup.exe
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\bin\Debug\WorldCup.pdb
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\bin\Debug\DataAccessLayer.dll
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\bin\Debug\DataAccessLayer.pdb
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.csproj.SuggestedBindingRedirects.cache
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.OdabirTima.resources
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.OmiljeniIgraci.resources
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.Postavke.resources
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.Properties.Resources.resources
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.Statistika.resources
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.UCMatchStats.resources
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.UCPlayer.resources
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.UCPlayerStats.resources
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.csproj.GenerateResource.cache
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.csproj.CopyComplete
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.exe
+C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.pdb
