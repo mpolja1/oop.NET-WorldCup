@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Postavke));
             this.cbJezik = new System.Windows.Forms.ComboBox();
             this.cbPrvenstvo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,70 +38,51 @@
             // 
             // cbJezik
             // 
+            resources.ApplyResources(this.cbJezik, "cbJezik");
             this.cbJezik.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbJezik.FormattingEnabled = true;
             this.cbJezik.Items.AddRange(new object[] {
-            "Hrvatski",
-            "Engleski"});
-            this.cbJezik.Location = new System.Drawing.Point(56, 113);
+            resources.GetString("cbJezik.Items"),
+            resources.GetString("cbJezik.Items1")});
             this.cbJezik.Name = "cbJezik";
-            this.cbJezik.Size = new System.Drawing.Size(242, 21);
-            this.cbJezik.TabIndex = 0;
             // 
             // cbPrvenstvo
             // 
+            resources.ApplyResources(this.cbPrvenstvo, "cbPrvenstvo");
             this.cbPrvenstvo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPrvenstvo.FormattingEnabled = true;
             this.cbPrvenstvo.Items.AddRange(new object[] {
-            "Muško",
-            "Žensko"});
-            this.cbPrvenstvo.Location = new System.Drawing.Point(56, 214);
+            resources.GetString("cbPrvenstvo.Items"),
+            resources.GetString("cbPrvenstvo.Items1")});
             this.cbPrvenstvo.Name = "cbPrvenstvo";
-            this.cbPrvenstvo.Size = new System.Drawing.Size(242, 21);
-            this.cbPrvenstvo.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(99, 73);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "ODABERITE JEZIK";
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(80, 177);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(192, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "ODABERITE PRVNESTVO";
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(124, 266);
+            resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 43);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "SPREMI";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnSave);
             // 
             // Postavke
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 363);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbPrvenstvo);
             this.Controls.Add(this.cbJezik);
             this.Name = "Postavke";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Postavke";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Postavke_FormClosing);
             this.Load += new System.EventHandler(this.Postavke_Load);
             this.ResumeLayout(false);

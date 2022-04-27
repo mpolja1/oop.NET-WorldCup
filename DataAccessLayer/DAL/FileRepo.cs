@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -64,18 +65,19 @@ namespace DataAccessLayer
                 return reader.ReadLine();
             }
         }
-        public void SaveFavoritePlayers(List<Player> igraci)
+        public void SaveFavoritePlayers(HashSet<Player>igraci)
         {
             CreateIfNonExists(pathOmiljeniIgraci);
-
-            File.WriteAllLines(pathOmiljeniIgraci, igraci.Select(igrac => igrac.FormatForFile()));
+            var json = JsonConvert.SerializeObject(igraci);
+          File.WriteAllText(pathOmiljeniIgraci, json);
+            //File.WriteAllLines(pathOmiljeniIgraci, igraci.Select(igrac => igrac.FormatForFile()));
         }
         public static List<Player> LoadFavoritePlayer()
         {
             List<Player> igraci = new List<Player>();
 
-            string[] lines = File.ReadAllLines(pathOmiljeniIgraci);
-            lines.ToList().ForEach(li => igraci.Add(Player.ParsePlayerFromFile(li)));
+            string lines = File.ReadAllText(pathOmiljeniIgraci);
+            igraci = JsonConvert.DeserializeObject<List<Player>>(lines);
 
 
             return igraci;

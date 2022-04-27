@@ -94,11 +94,20 @@
     <Compile Include="UCPlayerStats.Designer.cs">
       <DependentUpon>UCPlayerStats.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="OdabirTima.en.resx">
+      <DependentUpon>OdabirTima.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OdabirTima.resx">
       <DependentUpon>OdabirTima.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OmiljeniIgraci.en.resx">
+      <DependentUpon>OmiljeniIgraci.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OmiljeniIgraci.resx">
       <DependentUpon>OmiljeniIgraci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postavke.en.resx">
+      <DependentUpon>Postavke.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Postavke.resx">
       <DependentUpon>Postavke.cs</DependentUpon>
@@ -112,8 +121,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Statistika.en.resx">
+      <DependentUpon>Statistika.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Statistika.resx">
       <DependentUpon>Statistika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCMatchStats.en.resx">
+      <DependentUpon>UCMatchStats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCMatchStats.resx">
       <DependentUpon>UCMatchStats.cs</DependentUpon>

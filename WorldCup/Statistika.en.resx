@@ -117,26 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblAttendance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 20</value>
   </data>
-  <data name="&gt;&gt;flwAttendence.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblAttendance.Text" xml:space="preserve">
+    <value>Attendence</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="flwAttendence.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="lblPlayerStats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 20</value>
   </data>
-  <data name="&gt;&gt;flwPlayerStats.Name" xml:space="preserve">
-    <value>flwPlayerStats</value>
+  <data name="lblPlayerStats.Text" xml:space="preserve">
+    <value>Player Stats</value>
   </data>
-  <data name="&gt;&gt;flwPlayerStats.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="button1.Text" xml:space="preserve">
+    <value>Sort by attendence</value>
   </data>
   <data name="btnGoals.Text" xml:space="preserve">
-    <value>Sortitaj po golovima</value>
+    <value>Sort by goals</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="bntCards.Text" xml:space="preserve">
+    <value>Sort by yellow cards</value>
+  </data>
+  <data name="bntPrint.Text" xml:space="preserve">
+    <value>Print</value>
+  </data>
   <data name="printPreviewDialog.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAICAQAAAAAADoAgAAZgAAABAQEAAAAAAAKAEAAE4DAAAgIAAAAQAIAKgIAAB2BAAAEBAAAAEA
@@ -310,248 +315,7 @@
         wf+0BQAAgAUAAIAFAACAAQAAgAHB/4ABAACAAQAAgAEAALwBAAC8AQAAvAHB/4ABbP///5H/
 </value>
   </data>
-  <data name="lblPlayerStats.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 20</value>
-  </data>
-  <data name="flwPlayerStats.Location" type="System.Drawing.Point, System.Drawing">
-    <value>47, 41</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;flwAttendence.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="flwAttendence.Location" type="System.Drawing.Point, System.Drawing">
-    <value>479, 44</value>
-  </data>
-  <data name="&gt;&gt;lblPlayerStats.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="lblPlayerStats.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 14</value>
-  </data>
-  <data name="&gt;&gt;printDocument.Name" xml:space="preserve">
-    <value>printDocument</value>
-  </data>
-  <data name="lblAttendance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;flwPlayerStats.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnGoals.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="bntCards.Location" type="System.Drawing.Point, System.Drawing">
-    <value>188, 453</value>
-  </data>
-  <data name="flwAttendence.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="&gt;&gt;flwAttendence.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="bntPrint.Text" xml:space="preserve">
-    <value>Printaj</value>
-  </data>
-  <data name="lblAttendance.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lblPlayerStats.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="bntCards.Text" xml:space="preserve">
-    <value>Sortitaj po zutim kartonima</value>
-  </data>
-  <data name="&gt;&gt;bntCards.Name" xml:space="preserve">
-    <value>bntCards</value>
-  </data>
-  <data name="btnGoals.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="flwPlayerStats.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;bntPrint.Name" xml:space="preserve">
-    <value>bntPrint</value>
-  </data>
-  <data name="lblPlayerStats.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;bntCards.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblPlayerStats.Name" xml:space="preserve">
-    <value>lblPlayerStats</value>
-  </data>
-  <data name="printPreviewDialog.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>400, 300</value>
-  </data>
-  <data name="flwPlayerStats.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 408</value>
-  </data>
-  <data name="lblAttendance.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lblPlayerStats.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="printPreviewDialog.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
-  </data>
-  <data name="printPreviewDialog.AutoScrollMargin" type="System.Drawing.Size, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bntPrint.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblAttendance.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblPlayerStats.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>Sortitaj po posjećenosti</value>
-  </data>
-  <data name="bntPrint.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 216</value>
-  </data>
-  <data name="printPreviewDialog.AutoScrollMinSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;printDocument.Type" xml:space="preserve">
-    <value>System.Drawing.Printing.PrintDocument, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>267, 37</value>
-  </data>
-  <data name="lblAttendance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>559, 14</value>
-  </data>
-  <data name="&gt;&gt;bntCards.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="flwAttendence.Size" type="System.Drawing.Size, System.Drawing">
-    <value>291, 405</value>
-  </data>
-  <data name="&gt;&gt;printPreviewDialog.Name" xml:space="preserve">
-    <value>printPreviewDialog</value>
-  </data>
-  <data name="&gt;&gt;flwPlayerStats.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblAttendance.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>806, 502</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>479, 455</value>
-  </data>
-  <data name="lblAttendance.Text" xml:space="preserve">
-    <value>Posjećenost</value>
-  </data>
-  <data name="&gt;&gt;flwAttendence.Name" xml:space="preserve">
-    <value>flwAttendence</value>
-  </data>
-  <data name="&gt;&gt;printPreviewDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PrintPreviewDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblPlayerStats.Text" xml:space="preserve">
-    <value>Statistika Igraca</value>
-  </data>
-  <data name="&gt;&gt;lblAttendance.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="bntCards.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 37</value>
-  </data>
-  <data name="flwPlayerStats.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Statistika</value>
-  </data>
-  <data name="lblAttendance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 20</value>
-  </data>
-  <data name="&gt;&gt;bntCards.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="bntPrint.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;lblAttendance.Name" xml:space="preserve">
-    <value>lblAttendance</value>
-  </data>
-  <data name="lblPlayerStats.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="printPreviewDialog.Enabled" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;btnGoals.Name" xml:space="preserve">
-    <value>btnGoals</value>
-  </data>
-  <data name="&gt;&gt;btnGoals.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnGoals.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="btnGoals.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 37</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Statistika</value>
+    <value>Stats</value>
   </data>
-  <data name="btnGoals.Location" type="System.Drawing.Point, System.Drawing">
-    <value>47, 453</value>
-  </data>
-  <data name="&gt;&gt;bntPrint.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bntPrint.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="bntPrint.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 40</value>
-  </data>
-  <data name="bntCards.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <metadata name="printDocument.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
-  </metadata>
-  <metadata name="printPreviewDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>151, 17</value>
-  </metadata>
 </root>

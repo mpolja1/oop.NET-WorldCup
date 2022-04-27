@@ -55,17 +55,17 @@ namespace ConsoleClient
             ////GetByAttendance(matches);
             //HashSet<Player> matchesSet = GetPlayers(name, matches);
             //matchesSet.ToList().ForEach(Console.WriteLine);
-            Stopwatch stopwatch = new Stopwatch();
-            string country = "Nigeria";
+            //Stopwatch stopwatch = new Stopwatch();
+            //string country = "Nigeria";
 
-            FileRepo repofile = new FileRepo();
-           
-            IRepo repo = new ApiRepoMen();
-            ispistimova();
-           
-            
-            List<Match> mec = repo.GetMatches();
-            mec.ForEach(Console.WriteLine);
+            //FileRepo repofile = new FileRepo();
+
+            //IRepo repo = new ApiRepoMen();
+            //ispistimova();
+
+
+            //List<Match> mec = repo.GetMatches();
+            //mec.ForEach(Console.WriteLine);
             //mec.ForEach(Console.WriteLine);
             //teams.ForEach(Console.WriteLine);
             //stopwatch.Start();
@@ -77,7 +77,7 @@ namespace ConsoleClient
             // repofile.SaveFavoritePlayers(igraci.ToList());
             //List<Player> igraciii = FileRepo.LoadFavoritePlayer();
             // igraciii.ForEach(Console.WriteLine);
-          
+
             //List<Event> events = GetAllEvents(country,mec);
             ////events.ForEach(Console.WriteLine);
 
@@ -92,7 +92,8 @@ namespace ConsoleClient
 
             //List<Player> players = SortByGoalsAndYellowCard(country);
 
-
+            List<Player> igraci = FileRepo.LoadFavoritePlayer();
+            igraci.ForEach(Console.WriteLine);
         }
 
         private  async void Addtimova()
@@ -248,36 +249,36 @@ namespace ConsoleClient
 
         }
 
-        private static void GetOficcials()
-        {
-            IRepo repMen = new JsonMen();
-            List<Match> list = repMen.GetMatches();
+        //private static void GetOficcials()
+        //{
+        //    IRepo repMen = new JsonMen();
+        //    List<Match> list = repMen.GetMatches();
 
-            foreach (var item in list)
-            {
-                Console.WriteLine($"{item.home_team_country} vs {item.away_team_country}");
-                foreach (var off in item.officials)
-                {
-                    Console.WriteLine($" {off}");
-                }
-            }
-        }
+        //    foreach (var item in list)
+        //    {
+        //        Console.WriteLine($"{item.home_team_country} vs {item.away_team_country}");
+        //        foreach (var off in item.officials)
+        //        {
+        //            Console.WriteLine($" {off}");
+        //        }
+        //    }
+        //}
 
-        private static void Susret(string name)
-        {
+        //private static void Susret(string name)
+        //{
            
-                IRepo repMen = new JsonMen();
-                List<Match> list = repMen.GetMatches();
+        //        IRepo repMen = new JsonMen();
+        //        List<Match> list = repMen.GetMatches();
 
-                foreach (var utakmica in list)
-                {
-                    if (utakmica.home_team_country == name || utakmica.away_team_country == name)
-                    {
-                        Console.WriteLine($"{utakmica.stage_name}---{utakmica.home_team.country}{utakmica.home_team.goals} vs {utakmica.away_team.country}" +
-                            $"{utakmica.away_team.goals}");
-                    }
-                }
-            }
+        //        foreach (var utakmica in list)
+        //        {
+        //            if (utakmica.home_team_country == name || utakmica.away_team_country == name)
+        //            {
+        //                Console.WriteLine($"{utakmica.stage_name}---{utakmica.home_team.country}{utakmica.home_team.goals} vs {utakmica.away_team.country}" +
+        //                    $"{utakmica.away_team.goals}");
+        //            }
+        //        }
+        //    }
         
     }
 }

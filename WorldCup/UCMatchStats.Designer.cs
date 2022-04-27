@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCMatchStats));
             this.lblLocationn = new System.Windows.Forms.Label();
             this.lblAttendance = new System.Windows.Forms.Label();
             this.lblHomeTeam = new System.Windows.Forms.Label();
@@ -37,52 +38,32 @@
             // 
             // lblLocationn
             // 
-            this.lblLocationn.Location = new System.Drawing.Point(5, 10);
+            resources.ApplyResources(this.lblLocationn, "lblLocationn");
             this.lblLocationn.Name = "lblLocationn";
-            this.lblLocationn.Size = new System.Drawing.Size(96, 20);
-            this.lblLocationn.TabIndex = 0;
-            this.lblLocationn.Text = "Lokacija";
             // 
             // lblAttendance
             // 
-            this.lblAttendance.AutoSize = true;
-            this.lblAttendance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAttendance.Location = new System.Drawing.Point(108, 10);
+            resources.ApplyResources(this.lblAttendance, "lblAttendance");
             this.lblAttendance.Name = "lblAttendance";
-            this.lblAttendance.Size = new System.Drawing.Size(93, 16);
-            this.lblAttendance.TabIndex = 1;
-            this.lblAttendance.Text = "Posjećenost";
             // 
             // lblHomeTeam
             // 
-            this.lblHomeTeam.AutoSize = true;
-            this.lblHomeTeam.Location = new System.Drawing.Point(3, 44);
+            resources.ApplyResources(this.lblHomeTeam, "lblHomeTeam");
             this.lblHomeTeam.Name = "lblHomeTeam";
-            this.lblHomeTeam.Size = new System.Drawing.Size(49, 13);
-            this.lblHomeTeam.TabIndex = 2;
-            this.lblHomeTeam.Text = "Domaćin";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(80, 44);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(21, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "VS";
             // 
             // lblAwayTeam
             // 
-            this.lblAwayTeam.AutoSize = true;
-            this.lblAwayTeam.Location = new System.Drawing.Point(128, 44);
+            resources.ApplyResources(this.lblAwayTeam, "lblAwayTeam");
             this.lblAwayTeam.Name = "lblAwayTeam";
-            this.lblAwayTeam.Size = new System.Drawing.Size(29, 13);
-            this.lblAwayTeam.TabIndex = 4;
-            this.lblAwayTeam.Text = "Gost";
             // 
             // UCMatchStats
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -92,7 +73,6 @@
             this.Controls.Add(this.lblAttendance);
             this.Controls.Add(this.lblLocationn);
             this.Name = "UCMatchStats";
-            this.Size = new System.Drawing.Size(249, 80);
             this.ResumeLayout(false);
             this.PerformLayout();
 

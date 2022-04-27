@@ -9,12 +9,13 @@ namespace DataAccessLayer
 {
     public interface IRepo
     {
-         List<Results>  GetResults();
+         //List<Results>  GetResults();
        Task<List<Team>> GetTeams();
-        List<Match> GetMatches();
-        List<GroupResults> GetGroupsResults();
+       Task<List<Match>> GetMatches();
 
-        HashSet<Player> GetPlayers(string name);
-        List<Match> GetMatchesByCountry(string country);
+       Task<HashSet<Player>> GetPlayers(string name);
+       Task<List<Match>> GetMatchesByCountry(string country);
+
+        Task<List<Event>> GetAllEvents(string country, List<Match> mec);
     }
 }

@@ -6,10 +6,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.Linq;
 using System.Resources;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,55 +20,70 @@ namespace WorldCup
     public partial class Statistika : Form
     {
         IRepo repo = new ApiRepoMen();
-        List<Match> mecevi = new List<Match>();
-        HashSet<Player> players;
+        List<Match> mecevi;
         List<Player> statisticsPlayers;
         string country;
+       
         public Statistika()
         {
             InitializeComponent();
             country = FileRepo.LoadFavoriteTeam();
-            mecevi = repo.GetMatchesByCountry(country);
-            players = repo.GetPlayers(country);
-
-
         }
 
-        private void Statistika_Load(object sender, EventArgs e)
+        private async void Statistika_Load(object sender, EventArgs e)
         {
-            statisticsPlayers = LoadStatisticsPlayer();
-            AddStatsToFlp();
-            AddMatchesToFlp();
+            try
+            {
+                
+                mecevi = await repo.GetMatchesByCountry(country);
+                statisticsPlayers = await LoadStatisticsPlayer();
+                AddStatsToFlp();
+                AddMatchesToFlp();
 
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
 
         }
+        private void SetKultura(string jezik)
+        {
+            CultureInfo culture = new CultureInfo(jezik);
 
-        private List<Player> LoadStatisticsPlayer()
+            Thread.CurrentThread.CurrentUICulture = culture;
+
+            this.Controls.Clear();
+            InitializeComponent();
+        }
+        private async Task<List<Player>> LoadStatisticsPlayer()
         {
             List<Player> playerList = new List<Player>();
-            List<Event> events = ApiRepoMen.GetAllEvents(country, mecevi);
-            foreach (var item in players)
+            HashSet<Player> players = await repo.GetPlayers(country);
+            List<Event> events = await repo.GetAllEvents(country, mecevi);
+            foreach (var igrac in players)
             {
                 foreach (var eventt in events)
                 {
                     if (eventt.type_of_event == "goal" || eventt.type_of_event == "goal-penalty")
                     {
-                        if (item.name == eventt.player)
+                        if (igrac.name == eventt.player)
                         {
-                            item.BrojGolova++;
+                            igrac.BrojGolova++;
                         }
                     }
                     if (eventt.type_of_event == "yellow-card")
                     {
-                        if (item.name == eventt.player)
+                        if (igrac.name == eventt.player)
                         {
-                            item.BrojZutihKartona++;
+                            igrac.BrojZutihKartona++;
                         }
                     }
                 }
-                playerList.Add(item);
+                playerList.Add(igrac);
             }
-            return playerList;
+            return await Task.Run(()=> playerList);
         }
 
         private void AddStatsToFlp()
@@ -144,7 +161,9 @@ namespace WorldCup
         }
         private void bntPrint_Click(object sender, EventArgs e)
         {
-
+            printPreviewDialog.Show();
+            
+            
         }
         private void Statistika_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -152,6 +171,10 @@ namespace WorldCup
 
         }
 
-        
+        private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Font font = null;
+            e.Graphics.DrawString("hello World",font,Brushes.Green,0,0);
+        }
     }
 }

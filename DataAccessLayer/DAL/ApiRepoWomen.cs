@@ -12,35 +12,12 @@ namespace DataAccessLayer
 {
     public class ApiRepoWomen : IRepo
     {
-        private const string apiUrlGroupResults = @"http://worldcup.sfg.io/teams/group_results";
+        //private const string apiUrlGroupResults = @"http://worldcup.sfg.io/teams/group_results";
         private const string apiUrlMatches = @"http://worldcup.sfg.io/matches";
         private const string apiUrlTeams = @"http://worldcup.sfg.io/teams/";
         private const string apiUrlResults = @"http://worldcup.sfg.io/teams/results";
-        public List<GroupResults> GetGroupsResults()
-        {
-            List<GroupResults> list = new List<GroupResults>();
-
-            var webRequest = WebRequest.Create(apiUrlGroupResults) as HttpWebRequest;
-
-            webRequest.ContentType = "application/json";
-            webRequest.UserAgent = "Nothing";
-
-            using (var s = webRequest.GetResponse().GetResponseStream())
-            {
-                using (var sr = new StreamReader(s))
-                {
-                    var groupresults = sr.ReadToEnd();
-                    var matches = JsonConvert.DeserializeObject<List<GroupResults>>(groupresults);
-                    foreach (var item in matches)
-                    {
-                        list.Add(item);
-                    }
-                }
-            }
-
-            return list;
-        }
-        public List<Match> GetMatches()
+        
+        public async Task<List<Match>> GetMatches()
         {
             List<Match> list = new List<Match>();
 
@@ -54,41 +31,16 @@ namespace DataAccessLayer
                 using (var sr = new StreamReader(s))
                 {
                     var groupresults = sr.ReadToEnd();
-                    var matches = JsonConvert.DeserializeObject<List<Match>>(groupresults);
-                    foreach (var item in matches)
-                    {
-                        list.Add(item);
-                    }
+                    return await Task.Run(()=>{
+                        return JsonConvert.DeserializeObject<List<Match>>(groupresults);
+                    });
                 }
             }
-            return list;
+            
         }
 
-        public List<Results> GetResults()
-        {
-            List<Results> list = new List<Results>();
 
-            var webRequest = WebRequest.Create(apiUrlTeams) as HttpWebRequest;
-
-            webRequest.ContentType = "application/json";
-            webRequest.UserAgent = "Nothing";
-
-            using (var s = webRequest.GetResponse().GetResponseStream())
-            {
-                using (var sr = new StreamReader(s))
-                {
-                    var groupresults = sr.ReadToEnd();
-                    var matches = JsonConvert.DeserializeObject<List<Results>>(groupresults);
-                    foreach (var item in matches)
-                    {
-                        list.Add(item);
-                    }
-                }
-            }
-            return list;
-        }
-
-        public List<Team> GetTeams()
+        public async Task<List<Team>> GetTeams()
         {
             List<Team> list = new List<Team>();
 
@@ -102,18 +54,18 @@ namespace DataAccessLayer
                 using (var sr = new StreamReader(s))
                 {
                     var groupresults = sr.ReadToEnd();
-                    var matches = JsonConvert.DeserializeObject<List<Team>>(groupresults);
-                    foreach (var item in matches)
+                    return await Task.Run(() =>
                     {
-                        list.Add(item);
-                    }
+                        return JsonConvert.DeserializeObject<List<Team>>(groupresults);
+                    });
                 }
             }
-            return list;
+           
         }
-        public static HashSet<Player> GetPlayers(string name, List<Match> matches)
+        public async Task<HashSet<Player>> GetPlayers(string name)
         {
             HashSet<Player> matchesSet = new HashSet<Player>();
+            List<Match> matches = await GetMatches();
 
             foreach (Match item in matches)
             {
@@ -131,32 +83,43 @@ namespace DataAccessLayer
                 }
             }
 
-            return matchesSet;
+            return await Task.Run(()=>  matchesSet);
+        }
+        public async Task<List<Event>> GetAllEvents(string country, List<Match> mec)
+        {
+            List<Event> events = new List<Event>();
+
+            foreach (var item in mec)
+            {
+                if (item.home_team_country == country || item.away_team_country == country)
+                {
+                    foreach (var dogadaj in item.home_team_events)
+                    {
+                        events.Add(dogadaj);
+                    }
+                    foreach (var dog in item.away_team_events)
+                    {
+                        events.Add(dog);
+                    }
+                }
+            }
+
+            return await Task.Run(() => events);
         }
 
-        public List<Event> GetAllEvents()
+       
+        public async Task<List<Match>> GetMatchesByCountry(string country)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<Event> GetAllEvents(string country, List<Match> matches)
-        {
-            throw new NotImplementedException();
-        }
-
-        public HashSet<Player> GetPlayers(string name)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Match> GetMatchesByCountry(string country)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<Team>> IRepo.GetTeams()
-        {
-            throw new NotImplementedException();
+            List<Match> teams = new List<Match>();
+            List<Match> matches = await GetMatches();
+            foreach (var mec in matches)
+            {
+                if (mec.home_team_country == country || mec.away_team_country == country)
+                {
+                    teams.Add(mec);
+                }
+            }
+            return await Task.Run(() => teams);
         }
     }
 }

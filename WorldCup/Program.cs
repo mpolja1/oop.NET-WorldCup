@@ -19,7 +19,7 @@ namespace WorldCup
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Postavke());
+            Application.Run(new OmiljeniIgraci());
 
             try
             {
@@ -35,7 +35,7 @@ namespace WorldCup
                 {
                     Application.Run(new OdabirTima());
                 }
-                else if (players.Count>0)
+                else if (players.Count > 0)
                 {
                     Application.Run(new OmiljeniIgraci());
                 }

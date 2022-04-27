@@ -80,6 +80,26 @@ namespace DataAccessLayer
             return list;
         }
 
+        Task<List<Event>> IRepo.GetAllEvents(string country, List<Match> mec)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<Match>> IRepo.GetMatches()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<Match>> IRepo.GetMatchesByCountry(string country)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<HashSet<Player>> IRepo.GetPlayers(string name)
+        {
+            throw new NotImplementedException();
+        }
+
         Task<List<Team>> IRepo.GetTeams()
         {
             throw new NotImplementedException();
