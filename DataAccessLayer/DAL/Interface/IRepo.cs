@@ -17,5 +17,13 @@ namespace DataAccessLayer
        Task<List<Match>> GetMatchesByCountry(string country);
 
         Task<List<Event>> GetAllEvents(string country, List<Match> mec);
+
+        Task<List<TeamMatch>> GetAwayTeams(string country);
+
+        Task<List<Player>> GetStartingEleven(string country1, string country2);
+
+        Task<Match> GetMatch(string country1, string country2);
+        
+        
     }
 }

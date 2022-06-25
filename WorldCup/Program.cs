@@ -19,32 +19,32 @@ namespace WorldCup
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new OmiljeniIgraci());
+            Application.Run(new Postavke());
 
-            try
-            {
-                List<string> postavke = FileRepo.LoadPostavke();
-                string team = FileRepo.LoadFavoriteTeam();
-                List<Player> players = FileRepo.LoadFavoritePlayer();
+            //try
+            //{
+            //    List<string> postavke = FileRepo.LoadPostavke();
+            //    string team = FileRepo.LoadFavoriteTeam();
+            //    List<Player> players = FileRepo.LoadFavoritePlayer();
 
-                if (postavke.Count > 0)
-                {
-                    Application.Run(new Postavke());
-                }
-                else if (!String.IsNullOrEmpty(team))
-                {
-                    Application.Run(new OdabirTima());
-                }
-                else if (players.Count > 0)
-                {
-                    Application.Run(new OmiljeniIgraci());
-                }
-            }
-            catch (Exception)
-            {
+            //    if (postavke.Count > 0)
+            //    {
+            //        Application.Run(new Postavke());
+            //    }
+            //    else if (!String.IsNullOrEmpty(team))
+            //    {
+            //        Application.Run(new OdabirTima());
+            //    }
+            //    else if (players.Count > 0)
+            //    {
+            //        Application.Run(new OmiljeniIgraci());
+            //    }
+            //}
+            //catch (Exception)
+            //{
 
-                throw new Exception();
-            }
+            //    throw new Exception();
+            //}
 
 
         }

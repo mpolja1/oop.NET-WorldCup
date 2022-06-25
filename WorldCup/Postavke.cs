@@ -1,4 +1,6 @@
 ﻿using DataAccessLayer;
+using DataAccessLayer.DAL;
+using DataAccessLayer.DAL.Interface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +17,7 @@ namespace WorldCup
     public partial class Postavke : Form
     {
 
-        FileRepo repo = new FileRepo();
+        IFile _repoFile;
         
         public Postavke()
         {
@@ -27,7 +29,8 @@ namespace WorldCup
 
             try
             {
-              List<string> postavke = FileRepo.LoadPostavke();
+                _repoFile = RepoFactory.GetFileRepository();
+              List<string> postavke = _repoFile.LoadPostavke();
                 cbJezik.SelectedIndex = 0;
                 cbPrvenstvo.SelectedIndex = 0;
                
@@ -50,7 +53,7 @@ namespace WorldCup
             try
             {
                
-                repo.SavePostavke(selectedJezik, selectedPrvenstvo);
+                _repoFile.SavePostavke(selectedJezik, selectedPrvenstvo);
             }
             catch (Exception ex)
             {
@@ -61,7 +64,7 @@ namespace WorldCup
 
         private void btnSave(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Zelite li spremiti postavke", "Potvrda", MessageBoxButtons.OKCancel);
+            DialogResult result = MessageBox.Show(Properties.Resources.SpremanjePostavki, Properties.Resources.Potvrda, MessageBoxButtons.OKCancel);
 
             if (result== DialogResult.OK)
             {
@@ -71,14 +74,18 @@ namespace WorldCup
                 try
                 {
 
-                    repo.SavePostavke(selectedJezik, selectedPrvenstvo);
-                    MessageBox.Show("Upjesno spremljene postavke");
-                    
-                    Form form = new OdabirTima();
+                    _repoFile.SavePostavke(selectedJezik, selectedPrvenstvo);
+                    MessageBox.Show(Properties.Resources.Uspjesno);
+
+                    this.Hide();  
+                    OdabirTima form = new OdabirTima();
+
+
+                    form.Closed += (s, args) => this.Close();
                     form.Show();
-                    
-                
-                    
+
+
+
                 }
                 catch (Exception em)
                 {
@@ -88,10 +95,7 @@ namespace WorldCup
 
                 
             }
-            else
-            {
-                MessageBox.Show("Odustali ste");
-            }
+            
 
           
         }

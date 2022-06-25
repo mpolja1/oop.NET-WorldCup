@@ -70,6 +70,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.en.Designer.cs">
+      <DependentUpon>Resources.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Statistika.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +117,11 @@
     <EmbeddedResource Include="Postavke.resx">
       <DependentUpon>Postavke.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.en.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -120,6 +130,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Statistika.en.resx">
       <DependentUpon>Statistika.cs</DependentUpon>
@@ -135,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCPlayer.resx">
       <DependentUpon>UCPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCPlayerStats.en.resx">
+      <DependentUpon>UCPlayerStats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCPlayerStats.resx">
       <DependentUpon>UCPlayerStats.cs</DependentUpon>

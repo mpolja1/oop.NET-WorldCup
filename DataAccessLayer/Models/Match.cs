@@ -22,8 +22,8 @@ namespace DataAccessLayer.Models
         public DateTime datetime { get; set; }
         public string winner { get; set; }
         public string winner_code { get; set; }
-        public HomeTeam home_team { get; set; }
-        public AwayTeam away_team { get; set; }
+        public TeamMatch home_team { get; set; }
+        public TeamMatch away_team { get; set; }
         public List<HomeTeamEvent> home_team_events { get; set; }
         public List<AwayTeamEvent> away_team_events { get; set; }
         public HomeTeamStatistics home_team_statistics { get; set; }
@@ -40,6 +40,16 @@ namespace DataAccessLayer.Models
        => $"Venue: {venue} Location:  {location} Temeperatura: {weather.temp_celsius} Vrijeme: {datetime} HOmeteam: {home_team}" +
            $"awayTEam: {away_team}";
     }
+    public class TeamMatch
+    {
+        public string country { get; set; }
+        public string code { get; set; }
+        public int goals { get; set; }
+        public int penalties { get; set; }
+
+        public override string ToString()
+        => $"{country}";
+    }
 
     public class Weather
     {
@@ -50,26 +60,14 @@ namespace DataAccessLayer.Models
         public string description { get; set; }
     }
 
-    public class HomeTeam
+    public class HomeTeam : TeamMatch
     {
-        public string country { get; set; }
-        public string code { get; set; }
-        public int goals { get; set; }
-        public int penalties { get; set; }
-
-        public override string ToString()
-        => $"{country}";
+      
     }
 
-    public class AwayTeam
+    public class AwayTeam : TeamMatch
     {
-        public string country { get; set; }
-        public string code { get; set; }
-        public int goals { get; set; }
-        public int penalties { get; set; }
-
-        public override string ToString()
-        => $"{country}";
+      
     }
 
     public class HomeTeamEvent : Event

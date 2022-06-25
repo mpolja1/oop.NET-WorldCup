@@ -1,4 +1,6 @@
 ﻿using DataAccessLayer;
+using DataAccessLayer.DAL;
+using DataAccessLayer.DAL.Interface;
 using DataAccessLayer.Models;
 using System;
 using System.Collections;
@@ -20,21 +22,33 @@ namespace WorldCup
     public partial class Statistika : Form
     {
         IRepo repo = new ApiRepoMen();
+        IFile _repoFile;
         List<Match> mecevi;
         List<Player> statisticsPlayers;
         string country;
-       
+
         public Statistika()
         {
             InitializeComponent();
-            country = FileRepo.LoadFavoriteTeam();
+            try
+            {
+                _repoFile = RepoFactory.GetFileRepository();
+                country = _repoFile.LoadFavoriteTeam();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
         }
 
         private async void Statistika_Load(object sender, EventArgs e)
         {
             try
             {
-                
+
                 mecevi = await repo.GetMatchesByCountry(country);
                 statisticsPlayers = await LoadStatisticsPlayer();
                 AddStatsToFlp();
@@ -48,15 +62,7 @@ namespace WorldCup
             }
 
         }
-        private void SetKultura(string jezik)
-        {
-            CultureInfo culture = new CultureInfo(jezik);
 
-            Thread.CurrentThread.CurrentUICulture = culture;
-
-            this.Controls.Clear();
-            InitializeComponent();
-        }
         private async Task<List<Player>> LoadStatisticsPlayer()
         {
             List<Player> playerList = new List<Player>();
@@ -83,7 +89,7 @@ namespace WorldCup
                 }
                 playerList.Add(igrac);
             }
-            return await Task.Run(()=> playerList);
+            return await Task.Run(() => playerList);
         }
 
         private void AddStatsToFlp()
@@ -109,6 +115,7 @@ namespace WorldCup
             name = name.Replace("-", "_").ToLower();
             ResourceSet resourceSet =
                 MyResourceClass.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+
             foreach (DictionaryEntry entry in resourceSet)
             {
                 string resourceKey = entry.Key.ToString();
@@ -122,11 +129,11 @@ namespace WorldCup
             }
             return MojiResursiPhoto.UnkonwPlayer;
         }
-    
+
 
         private void AddMatchesToFlp()
         {
-            flwAttendence.Controls.Clear();  
+            flwAttendence.Controls.Clear();
             List<Match> matches = mecevi;
 
             foreach (var mec in mecevi)
@@ -136,12 +143,12 @@ namespace WorldCup
                 ms.Attendance = mec.attendance;
                 ms.HomeTeam = mec.home_team_country;
                 ms.AwayTeam = mec.away_team_country;
-                
+
                 flwAttendence.Controls.Add(ms);
             }
-            
+
         }
- 
+
         private void button1_Click(object sender, EventArgs e)
         {
             mecevi.Sort();
@@ -162,19 +169,45 @@ namespace WorldCup
         private void bntPrint_Click(object sender, EventArgs e)
         {
             printPreviewDialog.Show();
-            
-            
+
+
         }
         private void Statistika_FormClosing(object sender, FormClosingEventArgs e)
         {
-         Application.Exit();
+            Application.Exit();
 
         }
 
         private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            Font font = null;
-            e.Graphics.DrawString("hello World",font,Brushes.Green,0,0);
+            e.PageSettings.PaperSize = new PaperSize("A3", 1850, 1500);
+            Point point = new Point(0, 0);
+            int i = 1;
+
+            foreach (UCPlayerStats player in flwPlayerStats.Controls)
+            {
+                if (i % 8 == 0)
+                {
+                    point.X += player.Width + 15;
+                    point.Y = 0;
+
+                }
+
+
+                Bitmap bitmap = new Bitmap(player.Size.Width, player.Size.Height);
+                player.DrawToBitmap(bitmap, new Rectangle
+                {
+                    Width = player.Size.Width,
+                    Height = player.Size.Height
+                });
+                e.Graphics.DrawImage(bitmap, point);
+                
+                i++;
+                point.Y += player.Height + 10;
+            }
+            
+
+
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace DataAccessLayer
 {
     public class ApiRepoWomen : IRepo
+
     {
         //private const string apiUrlGroupResults = @"http://worldcup.sfg.io/teams/group_results";
         private const string apiUrlMatches = @"http://worldcup.sfg.io/matches";
@@ -120,6 +121,21 @@ namespace DataAccessLayer
                 }
             }
             return await Task.Run(() => teams);
+        }
+
+        public Task<List<TeamMatch>> GetAwayTeams(string country)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<Player>> GetStartingEleven(string country1, string country2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Match> GetMatch(string country1, string country2)
+        {
+            throw new NotImplementedException();
         }
     }
 }

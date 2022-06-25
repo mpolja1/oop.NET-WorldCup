@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCPlayerStats));
             this.pbPlayerPhoto = new System.Windows.Forms.PictureBox();
             this.lblFullName = new System.Windows.Forms.Label();
             this.lblGoals = new System.Windows.Forms.Label();
@@ -39,62 +40,40 @@
             // 
             // pbPlayerPhoto
             // 
+            resources.ApplyResources(this.pbPlayerPhoto, "pbPlayerPhoto");
             this.pbPlayerPhoto.BackColor = System.Drawing.Color.White;
             this.pbPlayerPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbPlayerPhoto.Location = new System.Drawing.Point(3, 3);
             this.pbPlayerPhoto.Name = "pbPlayerPhoto";
-            this.pbPlayerPhoto.Size = new System.Drawing.Size(120, 123);
-            this.pbPlayerPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPlayerPhoto.TabIndex = 0;
             this.pbPlayerPhoto.TabStop = false;
             // 
             // lblFullName
             // 
-            this.lblFullName.Location = new System.Drawing.Point(131, 16);
+            resources.ApplyResources(this.lblFullName, "lblFullName");
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(129, 23);
-            this.lblFullName.TabIndex = 1;
-            this.lblFullName.Text = "Name";
             // 
             // lblGoals
             // 
-            this.lblGoals.AutoSize = true;
-            this.lblGoals.Location = new System.Drawing.Point(172, 49);
+            resources.ApplyResources(this.lblGoals, "lblGoals");
             this.lblGoals.Name = "lblGoals";
-            this.lblGoals.Size = new System.Drawing.Size(34, 13);
-            this.lblGoals.TabIndex = 2;
-            this.lblGoals.Text = "Goals";
             // 
             // lblYellowCards
             // 
-            this.lblYellowCards.AutoSize = true;
-            this.lblYellowCards.Location = new System.Drawing.Point(172, 88);
+            resources.ApplyResources(this.lblYellowCards, "lblYellowCards");
             this.lblYellowCards.Name = "lblYellowCards";
-            this.lblYellowCards.Size = new System.Drawing.Size(67, 13);
-            this.lblYellowCards.TabIndex = 3;
-            this.lblYellowCards.Text = "Yellow-cards";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(131, 49);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Goals:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(129, 88);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Cards: ";
             // 
             // UCPlayerStats
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.Controls.Add(this.label2);
@@ -105,7 +84,6 @@
             this.Controls.Add(this.pbPlayerPhoto);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "UCPlayerStats";
-            this.Size = new System.Drawing.Size(263, 129);
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayerPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

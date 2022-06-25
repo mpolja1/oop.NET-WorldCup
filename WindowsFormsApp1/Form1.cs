@@ -10,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Resources;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -59,7 +60,21 @@ namespace WindowsFormsApp1
             }
             return MojiResursi.AndrejKramaric;
         }
-      
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();//Hide the 'current' form, i.e frm_form1 
+                        //show another form ( frm_form2 )   
+            Form2 frm = new Form2();
+          
+            var form2 = new Form2();
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
+
+
+
+        }
     }
 
 

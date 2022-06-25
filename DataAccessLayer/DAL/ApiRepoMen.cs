@@ -14,9 +14,9 @@ namespace DataAccessLayer
     public class ApiRepoMen : IRepo
     {
         //private const string apiUrlGroupResults = @"https://world-cup-json-2018.herokuapp.com/teams/results";
-        private const string apiUrlMatches= @"https://world-cup-json-2018.herokuapp.com/matches/";
-        private const string apiUrlTeams= @"http://world-cup-json-2018.herokuapp.com/teams/";
-        //private const string apiUrlResults= @"https://world-cup-json-2018.herokuapp.com/teams/results";
+        private const string apiUrlMatches = @"https://world-cup-json-2018.herokuapp.com/matches/";
+        private const string apiUrlTeams = @"http://world-cup-json-2018.herokuapp.com/teams/";
+        private const string apiUrlResults = @"https://world-cup-json-2018.herokuapp.com/teams/results";
 
 
         public async Task<List<Match>> GetMatches()
@@ -35,11 +35,12 @@ namespace DataAccessLayer
                     var groupresults = sr.ReadToEnd();
                     return await Task.Run(() =>
                     {
+                        //Thread.Sleep(5000);
                         return JsonConvert.DeserializeObject<List<Match>>(groupresults);
                     });
                 }
             }
-            
+
         }
 
         public async Task<List<Team>> GetTeams()
@@ -55,25 +56,25 @@ namespace DataAccessLayer
             {
                 using (var sr = new StreamReader(s))
                 {
-                    var groupresults = sr.ReadToEnd();
+                    var teams = sr.ReadToEnd();
                     return await Task.Run(() =>
                     {
-                        Thread.Sleep(TimeSpan.FromSeconds(5));
-                        return JsonConvert.DeserializeObject<List<Team>>(groupresults);
+                        //Thread.Sleep(5000);
+                        return JsonConvert.DeserializeObject<List<Team>>(teams);
                     });
 
                 }
             }
-         
+
         }
-        public async Task<HashSet<Player>> GetPlayers(string name)
+        public async Task<HashSet<Player>> GetPlayers(string country)
         {
             HashSet<Player> matchesSet = new HashSet<Player>();
             List<Match> matches = await GetMatches();
 
             foreach (Match item in matches)
             {
-                if (item.home_team_statistics.country == name || item.home_team_statistics.country == name)
+                if (item.home_team_statistics.country == country || item.home_team_statistics.country == country)
                 {
                     foreach (var igrac in item.home_team_statistics.starting_eleven)
                     {
@@ -87,9 +88,9 @@ namespace DataAccessLayer
                 }
             }
             //Thread.Sleep(TimeSpan.FromSeconds(5));
-            return await Task.Run(()=> matchesSet);
+            return await Task.Run(() => matchesSet);
         }
-     
+
 
         public async Task<List<Event>> GetAllEvents(string country, List<Match> mec)
         {
@@ -110,7 +111,7 @@ namespace DataAccessLayer
                 }
             }
 
-            return await Task.Run(()=> events);
+            return await Task.Run(() => events);
         }
 
         public async Task<List<Match>> GetMatchesByCountry(string country)
@@ -124,13 +125,69 @@ namespace DataAccessLayer
                     teams.Add(mec);
                 }
             }
-            return await Task.Run(()=> teams);
+            return await Task.Run(() => teams);
         }
 
-        
+        public async Task<List<TeamMatch>> GetAwayTeams(string country)
+        {
+            List<TeamMatch> opponents = new List<TeamMatch>();
+            List<Match> matches = await GetMatches();
+
+            foreach (var match in matches)
+            {
+                if (match.home_team.country==country || match.away_team.country==country)
+                {
+                    if (match.home_team.country != country)
+                    {
+                        opponents.Add(match.home_team);
+                    }
+                    else
+                    {
+                        opponents.Add(match.away_team);
+                    }
+                }
+               
+            }
+
+
+            return await Task.Run(() => opponents);
+        }
+
+        public async Task<List<Player>> GetStartingEleven(string country1, string country2)
+        {
+            List<Player> players = new List<Player>();
+            List<Match> matches = await GetMatches();
+
+            foreach (var match in matches)
+            {
+                if (match.home_team.country==country1 && match.away_team.country==country2 || match.home_team_country==country2 && match.away_team_country==country1)
+                {
+                    foreach (var player in match.home_team_statistics.starting_eleven)
+                    {
+                        players.Add(player);
+                    }
+                }
+            }
+            return await Task.Run(()=> players);
+        }
+
+        public async Task<Match> GetMatch(string country1, string country2)
+        {
+            IList<Match> matches = await GetMatches();
+            Match match = new Match();
+            foreach (var mec in matches)
+            {
+                if (mec.home_team_country==country1 && mec.away_team_country==country2 || mec.home_team_country==country2 && mec.away_team_country==country1)
+                {
+                    match = mec;
+                }
+            }
+            return await Task.Run(()=> match);
+        }
     }
 }
 
 
-       
+
+
 

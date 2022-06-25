@@ -26,6 +26,11 @@ namespace DataAccessLayer
             throw new NotImplementedException();
         }
 
+        public Task<List<TeamMatch>> GetAwayTeams(string country)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<GroupResults> GetGroupsResults()
         {
             List<GroupResults> list = new List<GroupResults>();
@@ -35,6 +40,11 @@ namespace DataAccessLayer
                 list = JsonConvert.DeserializeObject<List<GroupResults>>(json);
             }
             return list;
+        }
+
+        public Task<Match> GetMatch(string country1, string country2)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Match> GetMatches()
@@ -67,6 +77,11 @@ namespace DataAccessLayer
                 list = JsonConvert.DeserializeObject<List<Results>>(json);
             }
             return list;
+        }
+
+        public Task<List<Player>> GetStartingEleven(string country1, string country2)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Team> GetTeams()

@@ -1,4 +1,6 @@
 ﻿using DataAccessLayer;
+using DataAccessLayer.DAL;
+using DataAccessLayer.DAL.Interface;
 using DataAccessLayer.Models;
 using System;
 using System.Collections.Generic;
@@ -16,9 +18,11 @@ namespace WorldCup
 {
     public partial class OdabirTima : Form
     {
-        private readonly IRepo repo = new ApiRepoMen();
-        private readonly IRepo repoW = new ApiRepoWomen();
-        FileRepo fileRepo = new FileRepo();
+        
+        private IRepo _repo;
+        private IFile _repoFile;
+       
+        List<string> settings;
 
         private const string HR = "hr", EN = "en";
     
@@ -33,8 +37,12 @@ namespace WorldCup
             
             try
             {
-                List<string> postavke = FileRepo.LoadPostavke();
+                _repoFile = RepoFactory.GetFileRepository();
+
+                List<string> postavke = _repoFile.LoadPostavke();
                 string prvenstvo = postavke[1];
+                _repo = RepoFactory.GetChampionship(prvenstvo);
+
                 if (postavke[0]=="Hrvatski")
                 {
                     SetKultura(HR);
@@ -44,15 +52,8 @@ namespace WorldCup
                     SetKultura(EN);
                 }
 
-
-                if (prvenstvo=="Muško")
-                {
-                    FillAsycMen();
-                }
-                else
-                {
-                    FillAsycWomen();
-                }
+                FillAsyc();
+                
             }
             catch (Exception em)
             {
@@ -73,9 +74,9 @@ namespace WorldCup
             InitializeComponent();
         }
 
-        private async void FillAsycWomen()
+        private async void FillAsyc()
         {
-            var teams = await repoW.GetTeams();
+            var teams = await _repo.GetTeams();
             foreach (var item in teams)
             {
                 cbTeamList.Items.Add(item);
@@ -83,23 +84,19 @@ namespace WorldCup
             cbTeamList.SelectedIndex = 0;
         }
 
-        private  async void FillAsycMen()
-        {
-            var teams = await repo.GetTeams();
-            foreach (var team in teams)
-            {
-                cbTeamList.Items.Add(team);
-            }
-            cbTeamList.SelectedIndex = 0;
-        }
+       
 
         private void btnSpremi_Click(object sender, EventArgs e)
         {
             Team team = cbTeamList.SelectedItem as Team;
-            fileRepo.SaveFavoriteTeam(team);
+            _repoFile.SaveFavoriteTeam(team);
             
+
+
             Form form = new OmiljeniIgraci();
             form.Show();
+            
+            
             
         }
     }

@@ -47,10 +47,10 @@
   <ItemGroup>
     <Compile Include="DAL\ApiRepoMen.cs" />
     <Compile Include="DAL\ApiRepoWomen.cs" />
-    <Compile Include="Config.cs" />
     <Compile Include="DAL\FileRepo.cs" />
-    <Compile Include="FileRepoMen.cs" />
-    <Compile Include="DAL\IRepo.cs" />
+    <Compile Include="DAL\Interface\IFile.cs" />
+    <Compile Include="DAL\Interface\IRepo.cs" />
+    <Compile Include="DAL\RepoFactory.cs" />
     <Compile Include="DAL\JsonMen.cs" />
     <Compile Include="DAL\JsonWomen.cs" />
     <Compile Include="Models\Event.cs" />
@@ -102,6 +102,9 @@
     <Content Include="ResourcsPhotos\MarioMandzukic.jpg" />
     <Content Include="ResourcsPhotos\SimeVrsaljko.jpg" />
     <None Include="ResourcsPhotos\UnkonwPlayer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAL\Enum\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

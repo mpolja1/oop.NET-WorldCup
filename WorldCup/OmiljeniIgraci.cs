@@ -1,4 +1,6 @@
 ﻿using DataAccessLayer;
+using DataAccessLayer.DAL;
+using DataAccessLayer.DAL.Interface;
 using DataAccessLayer.Models;
 using System;
 using System.Collections.Generic;
@@ -15,45 +17,33 @@ namespace WorldCup
 {
     public partial class OmiljeniIgraci : Form
     {
-        private readonly IRepo repo = new ApiRepoMen();
-        private readonly IRepo repoW = new ApiRepoWomen();
+        private IRepo _repo;
+        private IFile _fileRepo;
+
+        List<string> postavke;
+        string country;
+
         private UCPlayer selectedPlayer;
-        FileRepo filerepo = new FileRepo();
-        private List<UCPlayer> igraci;
-        string name;
+        private List<UCPlayer> selectedUCPlayers = new List<UCPlayer>();
+
+
         public OmiljeniIgraci()
         {
             InitializeComponent();
-            try
-            {
-                name = FileRepo.LoadFavoriteTeam();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            _fileRepo = RepoFactory.GetFileRepository();
         }
 
-        private  void OmiljeniIgraci_Load(object sender, EventArgs e)
+        private void OmiljeniIgraci_Load(object sender, EventArgs e)
         {
             try
             {
 
-                List<string> postavke = FileRepo.LoadPostavke();
+                postavke = _fileRepo.LoadPostavke();
+                country = _fileRepo.LoadFavoriteTeam();
 
-                if (postavke[1] == "Muško")
-                {
+                _repo = RepoFactory.GetChampionship(postavke[1]);
+                FillAsyncPlayers(country);
 
-                    FillAsyncPlayersMen(name);
-
-                }
-                else
-                {
-                    FillAsyncPlayersWomen(name);
-
-
-                }             
             }
             catch (Exception ex)
             {
@@ -61,10 +51,11 @@ namespace WorldCup
                 MessageBox.Show(ex.Message);
             }
         }
-       
-        private async void FillAsyncPlayersMen(string name)
+
+        private async void FillAsyncPlayers(string country)
         {
-            var data = await repo.GetPlayers(name);
+            var data = await _repo.GetPlayers(country);
+
             foreach (var item in data)
             {
                 UCPlayer ucp = new UCPlayer();
@@ -73,28 +64,9 @@ namespace WorldCup
                 ucp.Position = item.position;
                 ucp.Capitan = item.captain;
                 ucp.PlayerImage = MojiResursiPhoto.UnkonwPlayer;
-                ucp.MouseClick += picture_click;
+                ucp.MouseClick += selectPlayer_click;
                 ucp.MouseDown += flpFavoritePlayers_MouseDown;
                 ucp.MouseDoubleClick += choosePicture_click;
-                flpAllPlayers.Controls.Add(ucp);
-           
-            }
-            //ako je oznacenn bojom prabaci ih u favorite players
-        }
-        private async void FillAsyncPlayersWomen(string name)
-        {
-            var data = await repoW.GetPlayers(name);
-            foreach (var item in data)
-            {
-                UCPlayer ucp = new UCPlayer();
-                ucp.NamePlayer = item.name;
-                ucp.ShirtNumber = item.shirt_number;
-                ucp.Position = item.position;
-                ucp.Capitan = item.captain;
-                ucp.PlayerImage = MojiResursiPhoto.UnkonwPlayer;
-                ucp.MouseDoubleClick += FavoritePlayer_click;
-                //ucp.MouseDown += button_MouseDown;
-
                 flpAllPlayers.Controls.Add(ucp);
 
             }
@@ -105,41 +77,11 @@ namespace WorldCup
         {
             if (e.Button == MouseButtons.Left)
             {
+                selectedPlayer.DoDragDrop(selectedPlayer, DragDropEffects.Move);
 
-                StartDnd(sender as UCPlayer);
             }
         }
-        private void StartDnd(UCPlayer player)
-        {
-            
-            if (player.BackColor == Color.Yellow)
-            {
-               
-                selectedPlayer = player;
-                player.DoDragDrop(player, DragDropEffects.Move);
-            }
-            
-          
-        }
-
-        private void FavoritePlayer_click(object sender, EventArgs e)
-        {
-            selectedPlayer = (UCPlayer)sender;
-            
-            if (flpFavoritePlayers.Controls.Count<3)
-            {
-                selectedPlayer.IconFavoritePlayer = MojiResursiPhoto.Star;
-                //selectedPlayer.MouseClick += choosePicture_click;
-                
-                flpFavoritePlayers.Controls.Add(selectedPlayer);
-            }
-            else
-            {
-                MessageBox.Show("Maximalni broj igraca je 3");
-            }
-            
-        }
-
+   
         private void choosePicture_click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -148,64 +90,63 @@ namespace WorldCup
 
             selectedPlayer = (UCPlayer)sender;
 
-           
+
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                // display image in picture box  
                 selectedPlayer.PlayerImage = new Bitmap(ofd.FileName);
 
-                
+
             }
         }
 
-        private void picture_click(object sender, MouseEventArgs e)
+        private void selectPlayer_click(object sender, MouseEventArgs e)
         {
 
-            if (e.Button==MouseButtons.Right)
+            if (e.Button == MouseButtons.Right)
             {
                 selectedPlayer = (UCPlayer)sender;
 
                 if (selectedPlayer.BackColor == Color.Yellow)
                 {
                     selectedPlayer.BackColor = Color.Empty;
+                    selectedUCPlayers.Remove(selectedPlayer);
                 }
 
                 else
                 {
                     selectedPlayer.BackColor = Color.Yellow;
-                } 
+                }
+            }
+            if (!selectedUCPlayers.Contains(selectedPlayer) && selectedPlayer.BackColor == Color.Yellow)
+            {
+                selectedUCPlayers.Add(selectedPlayer);
             }
         }
 
-        private async void btnStatistic_Click(object sender, EventArgs e)
+        private void btnStatistic_Click(object sender, EventArgs e)
         {
             Statistika stat = new Statistika();
-            filerepo.SaveFavoritePlayers(await repo.GetPlayers(name));
             stat.Show();
             this.Close();
         }
 
         private void flpFavoritePlayers_DragDrop(object sender, DragEventArgs e)
         {
-           
 
-            //UCPlayer player = e.Data.GetData(typeof(UCPlayer)) as UCPlayer;
-
-            if (flpFavoritePlayers.Controls.Count < 3 /*||*/ /*!flpFavoritePlayers.Contains(selectedPlayer)*/)
+            if (flpFavoritePlayers.Controls.Count < 3 && selectedUCPlayers.Count <= 3)
             {
-                selectedPlayer.BackColor= Color.Empty;
-                
-                selectedPlayer.IconFavoritePlayer = MojiResursiPhoto.Star;
-                //selectedPlayer.MouseClick += choosePicture_click;
-                
-                flpFavoritePlayers.Controls.Add(selectedPlayer);
+                foreach (var player in selectedUCPlayers)
+                {
+                    player.BackColor = Color.Empty;
+                    player.IconFavoritePlayer = MojiResursiPhoto.Star;
+                    flpFavoritePlayers.Controls.Add(player);
+                }
             }
             else
             {
-                flpAllPlayers.Controls.Add(selectedPlayer);
                 MessageBox.Show("Maximalni broj igraca je 3");
             }
-            
+
         }
 
         private void flpFavoritePlayers_DragEnter(object sender, DragEventArgs e)
@@ -214,6 +155,32 @@ namespace WorldCup
             e.Effect = DragDropEffects.Move;
         }
 
-       
+        private void btn_Clear_click(object sender, EventArgs e)
+        {
+            flpFavoritePlayers.Controls.Clear();
+
+            if (selectedUCPlayers.Count != 0)
+            {
+                foreach (var player in selectedUCPlayers)
+                {
+                    player.IconFavoritePlayer = null;
+                    player.BackColor = Color.Empty;
+                    flpAllPlayers.Controls.Add(player);
+                }
+            }
+            selectedUCPlayers.Clear();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (selectedUCPlayers.Count == 0)
+            {
+                MessageBox.Show("prazno");
+            }
+            else
+            {
+                MessageBox.Show(selectedUCPlayers.Count.ToString());
+            }
+        }
     }
 }

@@ -12,8 +12,9 @@ namespace ConsoleClient
     internal class Program
     {
         IRepo repo = new ApiRepoMen();
-        List<Team> teams;
-        static  void Main(string[] args)
+       
+
+         static async  Task Main(string[] args)
         {
 
             //FileRepoMen men = new FileRepoMen();
@@ -64,7 +65,8 @@ namespace ConsoleClient
             //ispistimova();
 
 
-            //List<Match> mec = repo.GetMatches();
+            
+            
             //mec.ForEach(Console.WriteLine);
             //mec.ForEach(Console.WriteLine);
             //teams.ForEach(Console.WriteLine);
@@ -92,18 +94,42 @@ namespace ConsoleClient
 
             //List<Player> players = SortByGoalsAndYellowCard(country);
 
-            List<Player> igraci = FileRepo.LoadFavoritePlayer();
-            igraci.ForEach(Console.WriteLine);
+            //List<Player> igraci = FileRepo.LoadFavoritePlayer();
+            //igraci.ForEach(Console.WriteLine);
+
+            IRepo repo = new ApiRepoMen();
+            //List<TeamMatch> list = await repo.GetAwayTeams("Croatia");
+            //list.ForEach(Console.WriteLine);
+            //foreach (var item in list)
+            //{
+            //    Console.WriteLine(item.goals);
+            //}
+
+            //Console.WriteLine(list.Count);
+            //List<Player> list = await repo.GetStartingEleven("France", "Croatia");
+
+            //list.ForEach(Console.WriteLine);
+
+            //Match mec = await repo.GetMatch("Argentina", "Croatia");
+
+
+            //Console.WriteLine($"{mec.home_team_country} {mec.home_team.goals} vs {mec.away_team.goals} {mec.away_team_country}");
+
+            //mec.home_team_statistics.starting_eleven.ForEach(Console.WriteLine);
+            //Console.WriteLine();
+            //mec.away_team_statistics.starting_eleven.ForEach(Console.WriteLine);
+
+            List<string> list = new List<string>();
+            Console.WriteLine(list.Count);
+
         }
 
-        private  async void Addtimova()
-        {
-            List<Team> timovi= await repo.GetTeams();
-            foreach (var item in timovi)
-            {
-                teams.Add(item);
-            }
-        }
+        //public async void Ispis()
+        //{
+        //    List<TeamMatch> utak = await GetAwayTeams("Croatia");
+        //    utak.ForEach(Console.WriteLine);
+        //}
+     
        
         private static List<Player> LoadGoalsAndCards(HashSet<Player> igraci, List<Event> events)
         {
@@ -155,6 +181,8 @@ namespace ConsoleClient
 
             return events;
         }
+
+       
 
         private static HashSet<Player> GetPlayers(string name, List<Match> matches)
         {
