@@ -119,8 +119,11 @@ namespace ConsoleClient
             //Console.WriteLine();
             //mec.away_team_statistics.starting_eleven.ForEach(Console.WriteLine);
 
-            List<string> list = new List<string>();
-            Console.WriteLine(list.Count);
+            //List<string> list = new List<string>();
+            //Console.WriteLine(list.Count);
+
+            IList<Results> results = await repo.GetResults();
+            results.ToList().ForEach(Console.WriteLine);
 
         }
 

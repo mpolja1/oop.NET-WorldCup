@@ -166,16 +166,15 @@ namespace WorldCup
             statisticsPlayers.Sort((x, y) => -x.BrojGolova.CompareTo(y.BrojGolova));
             AddStatsToFlp();
         }
-        private void bntPrint_Click(object sender, EventArgs e)
-        {
-            printPreviewDialog.Show();
-
-
-        }
+       
         private void Statistika_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
 
+        }
+        private void bntPrint_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog.Show();
         }
 
         private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
@@ -209,5 +208,7 @@ namespace WorldCup
 
 
         }
+
+
     }
 }

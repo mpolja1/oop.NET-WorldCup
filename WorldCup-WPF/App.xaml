@@ -4,6 +4,54 @@
              xmlns:local="clr-namespace:WorldCup_WPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="MainButton" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Goldenrod"/>
+            <Setter Property="Padding" Value="30"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        </Style>
+        
+        
+        
+        
+        <EventTrigger x:Key="animacijaStatistika" RoutedEvent="TextBlock.Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard TargetProperty="Width">
+                        <DoubleAnimation From="40"
+                                         To="120"
+                                         Duration="0:0:5" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+
+        <LinearGradientBrush x:Key="pozadina" StartPoint="0,0" EndPoint="1,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStop Offset="0" Color="Yellow" />
+                <GradientStop Offset="0" Color="Orange" />
+                <GradientStop Offset="1" Color="Yellow" />
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+
+        <EventTrigger x:Key="AnimationPlayerStats" RoutedEvent="Label.Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard>
+                        <Storyboard TargetProperty="Height">
+                            <DoubleAnimation From="0"
+                                             To="100"
+                                             Duration="0:0:5"
+                                             
+                                             RepeatBehavior="Forever"/>
+                        </Storyboard>
+                    </Storyboard>
+                </BeginStoryboard>
+                
+            </EventTrigger.Actions>
+        </EventTrigger>
+       
     </Application.Resources>
 </Application>

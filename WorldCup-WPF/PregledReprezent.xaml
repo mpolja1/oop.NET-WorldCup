@@ -8,38 +8,124 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PregledReprezent" Loaded="Window_Loaded">
 
-
-
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="2*"/>
+            <RowDefinition Height="10*"/>
+          
         </Grid.RowDefinitions>
 
-        
-            <Label Grid.Column="0" Content="FavoriteTeam" VerticalAlignment="Top" HorizontalAlignment="Center"  Margin="0,0,0,50"></Label>
-            <ComboBox Grid.Row="0" Grid.Column="0" Height="20" VerticalAlignment="Top" Margin="30" Name="favoriteCountry" Width="200"  >
 
-            </ComboBox>
-       
-        <!--<Label>fdsafdas
+        <Label Grid.Column="0" Grid.Row="0" Content="FavoriteTeam" VerticalAlignment="Top" HorizontalAlignment="Center"  Margin="0,0,0,50"></Label>
+        <ComboBox Grid.Row="0"  Grid.Column="0" Height="25" VerticalAlignment="Top" Margin="30" Name="cbFavoriteCountry" SelectionChanged="cbFavoriteCountry_SelectionChanged"   >
+
+        </ComboBox>
+
+
+        <Label Grid.Row="0" Grid.Column="2" Content="Away Team" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <ComboBox Grid.Row="0" Grid.Column="2" Height="25" VerticalAlignment="Top" Margin="30"   Name="cbAwayCountrys" SelectionChanged="cbAwayCountrys_SelectionChanged"   >
+        </ComboBox>
+        <Label ToolTipService.ShowDuration="120000" Name="lblHomeTeam"  Grid.Row="1" FontSize="30"  Grid.Column="0" 
+               HorizontalAlignment="Center" FontWeight="ExtraBold" MouseMove="lblHomeTeam_MouseMove">
             <Label.ToolTip>
-                <StackPanel Background="Yellow">
-                    <TextBlock>fdsafdas</TextBlock>
-                </StackPanel>
+                <TextBlock Margin="0" x:Name="tbHomeTeamStats" Width="110" TextWrapping="Wrap" Height="120" 
+                           Background="Yellow" FontWeight="Bold">
+                    <TextBlock.Triggers>
+                        <StaticResource ResourceKey="animacijaStatistika"/>
+                    </TextBlock.Triggers>
+                </TextBlock>
+                
             </Label.ToolTip>
-        
-        </Label>-->
-       
-            <Label Grid.Row="0" Grid.Column="1" Content="Away Team" HorizontalAlignment="Center"/>
-        <ComboBox Grid.Row="0" Grid.Column="1" Height="20" VerticalAlignment="Top" Margin="30"   Name="AwayCountrys"  Width="200" >
+            
+                     
+        </Label>
 
-            </ComboBox>
-       
+        <Label Name="lblHomeTeamResult" Content="" FontSize="30"  Grid.Row="1" Grid.Column="1" 
+               HorizontalAlignment="Left" FontWeight="ExtraBold"/>
+        <Label Name="lblDelimiter" Content="-" FontSize="30"  FontWeight="ExtraBold" Grid.Row="1" Grid.Column="1"
+               HorizontalAlignment="Center"/>
+
+        <Label Name="lblAwayTeamResult" Content="" Grid.Row="1" FontSize="30"  Grid.Column="1" 
+               HorizontalAlignment="Right" FontWeight="ExtraBold"/>
+
+        <Viewbox Visibility="Hidden" x:Name="vbPlayerStats" Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Center">
+            <Label FontStretch="Medium" FontSize="16"  FontWeight="ExtraBold"
+                   Background="{StaticResource pozadina}" x:Name="lblIgracStats">
+                <Label.Triggers>
+                    <StaticResource ResourceKey="AnimationPlayerStats"/>
+                </Label.Triggers>
+            </Label>
+            
+        </Viewbox>
+        
+        <Label ToolTipService.ShowDuration="120000" Name="lblAwayTeam"  Grid.Row="1" Grid.Column="2" 
+               HorizontalAlignment="Center" FontWeight="ExtraBold"  FontSize="30" MouseMove="lblAwayTeam_MouseMove">
+            <Label.ToolTip>
+                <TextBlock x:Name="tbAwayTeamStats" Width="110" TextWrapping="Wrap" 
+                           Height="120" Background="Yellow" FontWeight="Bold">
+                    <TextBlock.Triggers>
+                        <StaticResource ResourceKey="animacijaStatistika"/>
+                    </TextBlock.Triggers>
+                </TextBlock>
+            </Label.ToolTip>
+        </Label>
+        <Grid Name="footbalfield" Grid.Row="3" Grid.ColumnSpan="3">
+            <Grid.Background>
+                <ImageBrush ImageSource="football_field.jpg" />
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel x:Name="golman" Grid.Column="0" VerticalAlignment="Center">
+
+            </StackPanel>
+            <StackPanel x:Name="Obrana" Grid.Column="1" VerticalAlignment="Center">
+
+            </StackPanel>
+            <StackPanel Grid.Column="2" x:Name="VezniRed" VerticalAlignment="Center">
+
+            </StackPanel>
+            <StackPanel Grid.Column="3" x:Name="Napad" VerticalAlignment="Center">
+
+
+            </StackPanel>
+            <StackPanel Grid.Column="5" x:Name="AwayForward" VerticalAlignment="Center">
+
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="6" x:Name="AwayMidfield" Orientation="Vertical" VerticalAlignment="Center" >
+
+
+            </StackPanel>
+            <StackPanel Grid.Column="7" x:Name="AwayDefender" VerticalAlignment="Center">
+
+
+            </StackPanel>
+            <StackPanel Grid.Column="8" x:Name="AwayGoalie" VerticalAlignment="Center">
+
+
+            </StackPanel>
+            
+
+        </Grid>
     </Grid>
+    
 
 
 </Page>

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WorldCup_WPF"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="100">
+             d:DesignHeight="100" MaxHeight="150" MaxWidth="150" d:DesignWidth="100">
     
 
     <Grid  Margin="0">
@@ -19,9 +19,9 @@
   
         </Image>
         <Label Name="lblplayerNumber"  FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <StackPanel Grid.Row="1">
-            <Label  Name="lblplayerName" FontStretch="Medium" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-        </StackPanel>
+        <Viewbox Grid.Row="1">
+            <Label Name="lblplayerName" Content="" FontStretch="Medium" FontWeight="ExtraBold" HorizontalAlignment="Center" />
+        </Viewbox>
         
 
     </Grid>

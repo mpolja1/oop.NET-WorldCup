@@ -1,4 +1,6 @@
 ﻿using DataAccessLayer;
+using DataAccessLayer.DAL;
+using DataAccessLayer.DAL.Interface;
 using DataAccessLayer.Models;
 using System;
 using System.Collections.Generic;
@@ -22,38 +24,328 @@ namespace WorldCup_WPF
     /// </summary>
     public partial class PregledReprezent : Page
     {
-        private IRepo _repo = new ApiRepoMen();
+        private IRepo _repo;
+        private IFile _repoFile;
+
+        private List<string> settings;
+
+        private List<Results> _results;
         private List<Team> teams;
-        private Team _favoriteTeam;
+        private Team _HomeTeam;
         private List<TeamMatch> awayTeams;
+        private List<Match> matches;
+        private string _awayTeam;
+        private Match _match;
+
+        string favoriteTeam;
         public PregledReprezent()
         {
             InitializeComponent();
-   
-        }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            GetTeamAsync();
-            GetAwayTeams();
-        }
-        private async void GetTeamAsync()
-        {
-            teams = await _repo.GetTeams();
-            foreach (var item in teams)
+            try
             {
-                favoriteCountry.Items.Add(item);
+                _repoFile = RepoFactory.GetFileRepository();
+                favoriteTeam = _repoFile.LoadFavoriteTeam();
             }
-            _favoriteTeam = teams.Where(x => x.country == "Croatia").FirstOrDefault();
-            favoriteCountry.SelectedItem = _favoriteTeam;
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
 
         }
-        private async void GetAwayTeams()
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            awayTeams = await _repo.GetAwayTeams("Nigeria");
+            try
+            {
+                settings = _repoFile.LoadPostavke();
+
+                string tournament = settings[1];
+                _repo = RepoFactory.GetChampionship(tournament);
+                matches = await _repo.GetMatches();
+                _results = (List<Results>)await _repo.GetResults();
+                teams = await _repo.GetTeams();
+                awayTeams = await _repo.GetAwayTeams(favoriteTeam);
+
+                AppendFavoriteTeams();
+                GetAwayTeams();
+               
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        private void AppendFavoriteTeams()
+        {
+            teams.Sort((x, y) => x.country.CompareTo(y.country));
+            foreach (var item in teams)
+            {
+                cbFavoriteCountry.Items.Add(item);
+            }
+            _HomeTeam = teams.First(x => x.country == favoriteTeam);
+            cbFavoriteCountry.SelectedItem = _HomeTeam;
+
+        }
+        private void GetAwayTeams()
+        {
+          
+            foreach (var match in matches)
+            {
+                if (match.home_team.country == _HomeTeam.country || match.away_team.country == _HomeTeam.country)
+                {
+                    if (match.home_team.country != _HomeTeam.country)
+                    {
+                        awayTeams.Add(match.home_team);
+                    }
+                    else
+                    {
+                        awayTeams.Add(match.away_team);
+                    }
+                }
+
+            }
+
+            AppendAwayTeams();
+            
+            awayTeams.Clear();
+        }
+
+        private void cbFavoriteCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _HomeTeam = (cbFavoriteCountry.SelectedItem as Team);
+            GetAwayTeams();
+            
+
+        }
+        private void cbAwayCountrys_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+          ResetFootballField();
+            try
+            {
+                
+                if (cbAwayCountrys.SelectedIndex!=-1)
+                {
+                    
+                    _awayTeam = cbAwayCountrys.SelectedItem.ToString();
+                    _match = matches.Where(x => x.home_team_country == _HomeTeam.country && x.away_team_country == _awayTeam || x.home_team_country == _awayTeam && x.away_team_country == _HomeTeam.country).FirstOrDefault();
+
+                    if (_match != null)
+                    {
+                        GetResults();
+                        if (golman.Children.Count == 0)
+                        {
+                            SetPlayersOnField();
+                        }
+
+                    }
+                }
+                
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message + "Greska awayselectionchaned");
+            }
+
+
+
+        }
+        public void ResetFootballField()
+        {
+            foreach (StackPanel item in footbalfield.Children)
+            {
+                item.Children.Clear();
+            }
+        }
+        public void AppendAwayTeams()
+        {
+            if (cbAwayCountrys.Items.Count != 0)
+            {
+                cbAwayCountrys.Items.Clear();
+            }
+
             foreach (var team in awayTeams)
             {
-                AwayCountrys.Items.Add(team);
+                cbAwayCountrys.Items.Add(team);
             }
+
+
+            cbAwayCountrys.SelectedIndex = 0;
+
+            _awayTeam = cbAwayCountrys.SelectedItem.ToString();
+            
+
+        }
+        public void GetResults()
+        {
+            try
+            {
+                lblHomeTeam.Content = _HomeTeam.country;
+                lblAwayTeam.Content = cbAwayCountrys.SelectedItem.ToString();
+                _match = matches.Where(x => x.home_team_country == _HomeTeam.country && x.away_team_country == _awayTeam || x.home_team_country == _awayTeam && x.away_team_country == _HomeTeam.country).FirstOrDefault();
+
+                if (_match != null)
+                {
+                    if (_HomeTeam.country == _match.away_team_country)
+                    {
+                        lblHomeTeamResult.Content = _match.away_team.goals.ToString();
+                        lblAwayTeamResult.Content = _match.home_team.goals.ToString();
+
+                    }
+                    else
+                    {
+                        lblHomeTeamResult.Content = _match.home_team.goals.ToString();
+                        lblAwayTeamResult.Content = _match.away_team.goals.ToString();
+                    }
+
+                }
+                if (footbalfield.Children.Count == 0)
+                {
+                    footbalfield.Children.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+
+        private void lblHomeTeam_MouseMove(object sender, MouseEventArgs e)
+        {
+            Results teamResult = _results.Where(x => x.country == _HomeTeam.country).FirstOrDefault();
+            tbHomeTeamStats.Text = teamResult.ToString();
+        }
+
+        private void lblAwayTeam_MouseMove(object sender, MouseEventArgs e)
+        {
+            Results teamResulta = _results.Where(x => x.country == _awayTeam).FirstOrDefault();
+            tbAwayTeamStats.Text = teamResulta.ToString();
+        }
+
+        private void SetPlayersOnField()
+        {
+
+            foreach (var player in _match.home_team_statistics.starting_eleven)
+            {
+                GetHomeTeamPlayerStats(player, _match);
+                PlayerOnField plf = new PlayerOnField(player);
+
+                plf.MouseEnter += PlayerOnFieldSelected;
+                plf.MouseLeave += Plf_MouseLeave;
+                switch (player.position)
+                {
+                    case "Goalie":
+                        this.golman.Children.Add(plf);
+                        break;
+                    case "Defender":
+                        Obrana.Children.Add(plf);
+                        break;
+                    case "Midfield":
+                        VezniRed.Children.Add(plf);
+                        break;
+                    case "Forward":
+                        Napad.Children.Add(plf);
+                        break;
+
+                    default:
+                        break;
+                }
+
+            }
+            foreach (var playeraway in _match.away_team_statistics.starting_eleven)
+            {
+                GetAwayTeamPlayerStats(playeraway, _match);
+                PlayerOnField plf = new PlayerOnField(playeraway as StartingEleven);
+
+                plf.MouseEnter += PlayerOnFieldSelected;
+                plf.MouseLeave += Plf_MouseLeave;
+
+                switch (playeraway.position)
+                {
+                    case "Goalie":
+                        AwayGoalie.Children.Add(plf);
+                        break;
+                    case "Defender":
+                        AwayDefender.Children.Add(plf);
+                        break;
+                    case "Midfield":
+                        AwayMidfield.Children.Add(plf);
+                        break;
+                    case "Forward":
+                        AwayForward.Children.Add(plf);
+                        break;
+
+                    default:
+                        break;
+                }
+
+            }
+
+        }
+
+        private void Plf_MouseLeave(object sender, MouseEventArgs e)
+        {
+            vbPlayerStats.Visibility = Visibility.Hidden;
+        }
+
+        private void GetHomeTeamPlayerStats(Player player, Match match)
+        {
+
+            foreach (var eventt in match.home_team_events)
+            {
+                if (eventt.type_of_event == "goal" || eventt.type_of_event == "goal-penalty")
+                {
+                    if (player.name == eventt.player)
+                    {
+                        player.BrojGolova++;
+                    }
+                }
+                if (eventt.type_of_event == "yellow-card")
+                {
+                    if (player.name == eventt.player)
+                    {
+                        player.BrojZutihKartona++;
+                    }
+                }
+            }
+
+        }
+        private void GetAwayTeamPlayerStats(Player player, Match match)
+        {
+
+            foreach (var eventt in match.away_team_events)
+            {
+                if (eventt.type_of_event == "goal" || eventt.type_of_event == "goal-penalty")
+                {
+                    if (player.name == eventt.player)
+                    {
+                        player.BrojGolova++;
+                    }
+                }
+                if (eventt.type_of_event == "yellow-card")
+                {
+                    if (player.name == eventt.player)
+                    {
+                        player.BrojZutihKartona++;
+                    }
+                }
+            }
+
+        }
+
+        private void PlayerOnFieldSelected(object sender, MouseEventArgs e)
+        {
+            PlayerOnField playerOnField = (PlayerOnField)sender;
+            lblIgracStats.Content = playerOnField.ToString();
+            vbPlayerStats.Visibility = Visibility.Visible;
+
 
         }
     }

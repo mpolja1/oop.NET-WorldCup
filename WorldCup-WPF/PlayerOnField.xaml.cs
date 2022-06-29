@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,32 @@ namespace WorldCup_WPF
     /// </summary>
     public partial class PlayerOnField : UserControl
     {
-        public PlayerOnField()
+        Player Player { get; set; }
+        public PlayerOnField(Player player)
         {
             InitializeComponent();
+            this.Player = player;
+            SetPlayer(player);
         }
+
+        private void SetPlayer(Player player)
+        {
+            lblplayerName.Content = player.name;
+            lblplayerNumber.Content = player.shirt_number;
+        }
+
+        private void PlayerOnFieldSelected(object sender, MouseEventArgs e)
+        {
+            PlayerOnField playerOnField = (PlayerOnField)sender;
+
+        }
+
+        public override string ToString()
+        => $"{Player.name} {Player.shirt_number}" +
+            $" {Player.position}{Environment.NewLine}Kapetan: {Player.captain}" +
+            $"{Environment.NewLine}Golovi: {Player.BrojGolova}" +
+            $"{Environment.NewLine}Zuti:{Player.BrojZutihKartona}";
+
+       
     }
 }

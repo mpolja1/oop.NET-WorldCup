@@ -46,6 +46,8 @@ namespace DataAccessLayer.Models
             };
         }
         public override string ToString()
-       => $"{id}{country}{alternate_name}";
+       => $"Name:{country}{Environment.NewLine}Code:{fifa_code} GamesPlayed:{games_played}" +
+            $"    Win: {wins} Lose:{losses} Draw:{draws}" +
+            $"{Environment.NewLine}Goals:{goals_for}/{goals_against}{Environment.NewLine}Goals Diff:{goal_differential}";
     }
 }

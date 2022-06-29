@@ -1,4 +1,6 @@
 ﻿using DataAccessLayer;
+using DataAccessLayer.DAL;
+using DataAccessLayer.DAL.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,18 +25,18 @@ namespace WorldCup_WPF
     
     public partial class Postavke : Page
     {
-        FileRepo fileRepo = new FileRepo();
+       private IFile _fileRepo = RepoFactory.GetFileRepository();
+       
         
         public Postavke()
         {
             InitializeComponent();
-            //resolution = FileRepo.LoadResolution();
         }
 
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+           
         }
 
         private void btnsave_Click(object sender, RoutedEventArgs e)
@@ -48,7 +50,8 @@ namespace WorldCup_WPF
                      MessageBoxButton.YesNo,
                      MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                fileRepo.SaveResolution(resolution);
+                _fileRepo.SaveResolution(resolution);
+                _fileRepo.SavePostavke(language, tournament);
                 MessageBox.Show("Restart app");
                 
             }

@@ -115,6 +115,13 @@ namespace DataAccessLayer
             throw new NotImplementedException();
         }
 
+       
+
+        Task<IList<Results>> IRepo.GetResults()
+        {
+            throw new NotImplementedException();
+        }
+
         Task<List<Team>> IRepo.GetTeams()
         {
             throw new NotImplementedException();

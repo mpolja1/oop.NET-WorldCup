@@ -137,5 +137,10 @@ namespace DataAccessLayer
         {
             throw new NotImplementedException();
         }
+
+        public Task<IList<Results>> GetResults()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -23,6 +23,7 @@ namespace DataAccessLayer
         Task<List<Player>> GetStartingEleven(string country1, string country2);
 
         Task<Match> GetMatch(string country1, string country2);
+        Task<IList<Results>> GetResults();
         
         
     }

@@ -5,23 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldCup_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen"
-        Icon="shirt-icon.jpg"
-        Loaded="Window_Loaded">
+        Title="World Cup 2018" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        Icon="worldcup_trophy.png"
+        Loaded="Window_Loaded" >
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" MinWidth="95"/>
+            <ColumnDefinition Width="auto" MinWidth="250" MaxWidth="500"/>
             <ColumnDefinition  Width="1*"/>
-           
-            
-            
         </Grid.ColumnDefinitions>
-        <StackPanel VerticalAlignment="Center">
-            <Button Grid.Column="0" Padding="20" Click="btnPostavke_click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Postavke</Button>
-            <Button Grid.Column="0" Padding="20" Click="btnPregledReprezentacije_click" >Pregled reprezentacija</Button>
-            <Button Grid.Column="0" Padding="20" Click="btnPocetnePostave_click">Prikaz početne postave</Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <Image Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"   MaxHeight="320"  Source="worldcup_trophy.png" Grid.Column="0" Grid.Row="0"/>
+        <StackPanel   VerticalAlignment="Center" Grid.Column="0" Grid.Row="1">
+           
+            <Button Style="{StaticResource ResourceKey=MainButton}"  Click="btnPostavke_click">Postavke</Button>
+            <Button Style="{StaticResource ResourceKey=MainButton}" Click="btnPregledReprezentacije_click" >Pregled reprezentacija</Button>
+            <Button  Style="{StaticResource ResourceKey=MainButton}" Click="bntExit_Click">Exit</Button>
         </StackPanel>
-        <Frame Grid.Column="1" x:Name="Main" NavigationUIVisibility="Hidden"></Frame>
-        </Grid>
+        <Frame Grid.Column="1" Grid.RowSpan="2" x:Name="Main" NavigationUIVisibility="Hidden">
+
+        </Frame>
+    </Grid>
 </Window>

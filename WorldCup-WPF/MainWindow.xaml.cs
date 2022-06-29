@@ -39,7 +39,7 @@ namespace WorldCup_WPF
 
                 MessageBox.Show(ex.Message);
             }
-           
+
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -56,12 +56,12 @@ namespace WorldCup_WPF
             switch (resolution)
             {
                 case "Mala":
-                    Application.Current.MainWindow.Width = 550;
-                    Application.Current.MainWindow.Height = 450;
+                    Application.Current.MainWindow.Width = 700;
+                    Application.Current.MainWindow.Height = 615;
                     break;
                 case "Srednja":
-                    Application.Current.MainWindow.Width = 900;
-                    Application.Current.MainWindow.Height = 800;
+                    Application.Current.MainWindow.Width = 1100;
+                    Application.Current.MainWindow.Height = 980;
                     break;
                 case "PunZaslon":
                     WindowState = WindowState.Maximized;
@@ -85,9 +85,18 @@ namespace WorldCup_WPF
 
         private void btnPocetnePostave_click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Postave();
+            //Main.Content = new Postave();
         }
 
-        
+
+        private void bntExit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = MessageBox.Show("Zelite li izaci iz aplikacije", "Potvrda", MessageBoxButton.OKCancel,MessageBoxImage.Warning);
+            if (messageBoxResult == MessageBoxResult.OK)
+            {
+                Application.Current.Shutdown();
+
+            }
+        }
     }
 }

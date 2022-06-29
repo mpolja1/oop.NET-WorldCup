@@ -87,7 +87,7 @@
             resources.ApplyResources(this.bntPrint, "bntPrint");
             this.bntPrint.Name = "bntPrint";
             this.bntPrint.UseVisualStyleBackColor = true;
-            this.bntPrint.Click += new System.EventHandler(this.Statistika_Load);
+            this.bntPrint.Click += new System.EventHandler(this.bntPrint_Click);
             // 
             // printDocument
             // 

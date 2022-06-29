@@ -71,10 +71,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Postave.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Postavke.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -87,9 +83,6 @@
   <ItemGroup>
     <Compile Include="PlayerOnField.xaml.cs">
       <DependentUpon>PlayerOnField.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Postave.xaml.cs">
-      <DependentUpon>Postave.xaml</DependentUpon>
     </Compile>
     <Compile Include="Postavke.xaml.cs">
       <DependentUpon>Postavke.xaml</DependentUpon>
@@ -133,6 +126,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="shirt-icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="worldcup_trophy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="world-cup.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

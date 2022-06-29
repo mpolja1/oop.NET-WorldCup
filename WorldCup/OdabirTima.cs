@@ -22,8 +22,6 @@ namespace WorldCup
         private IRepo _repo;
         private IFile _repoFile;
        
-        List<string> settings;
-
         private const string HR = "hr", EN = "en";
     
         public OdabirTima()

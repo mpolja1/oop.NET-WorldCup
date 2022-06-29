@@ -11,16 +11,3 @@ C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\ConsoleClient\obj\Deb
 C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\ConsoleClient\obj\Debug\ConsoleClient.csproj.CopyComplete
 C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\ConsoleClient\obj\Debug\ConsoleClient.exe
 C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\ConsoleClient\obj\Debug\ConsoleClient.pdb
-C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\ConsoleClient\bin\Debug\ConsoleClient.exe.config
-C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\ConsoleClient\bin\Debug\ConsoleClient.exe
-C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\ConsoleClient\bin\Debug\ConsoleClient.pdb
-C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\ConsoleClient\bin\Debug\DataAccessLayer.dll
-C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\ConsoleClient\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\ConsoleClient\bin\Debug\DataAccessLayer.pdb
-C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\ConsoleClient\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\ConsoleClient\obj\Debug\ConsoleClient.csproj.AssemblyReference.cache
-C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\ConsoleClient\obj\Debug\ConsoleClient.csproj.SuggestedBindingRedirects.cache
-C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\ConsoleClient\obj\Debug\ConsoleClient.csproj.CoreCompileInputs.cache
-C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\ConsoleClient\obj\Debug\ConsoleClient.csproj.CopyComplete
-C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\ConsoleClient\obj\Debug\ConsoleClient.exe
-C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\ConsoleClient\obj\Debug\ConsoleClient.pdb

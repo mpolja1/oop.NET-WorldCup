@@ -45,7 +45,7 @@ namespace DataAccessLayer
 
         public async Task<List<Team>> GetTeams()
         {
-            List<Team> list = new List<Team>();
+           
 
             var webRequest = WebRequest.Create(apiUrlTeams) as HttpWebRequest;
 
@@ -57,6 +57,7 @@ namespace DataAccessLayer
                 using (var sr = new StreamReader(s))
                 {
                     var teams = sr.ReadToEnd();
+                    
                     return await Task.Run(() =>
                     {
                         //Thread.Sleep(5000);
@@ -183,6 +184,30 @@ namespace DataAccessLayer
                 }
             }
             return await Task.Run(()=> match);
+        }
+
+        public async Task<IList<Results>> GetResults()
+        {
+            List<Results> list = new List<Results>();
+
+            var webRequest = WebRequest.Create(apiUrlResults) as HttpWebRequest;
+
+            webRequest.ContentType = "application/json";
+            webRequest.UserAgent = "Nothing";
+
+            using (var s = webRequest.GetResponse().GetResponseStream())
+            {
+                using (var sr = new StreamReader(s))
+                {
+                    var results = sr.ReadToEnd();
+                    return await Task.Run(() =>
+                    {
+                        //Thread.Sleep(5000);
+                        return JsonConvert.DeserializeObject<List<Results>>(results);
+                    });
+
+                }
+            }
         }
     }
 }
