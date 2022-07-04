@@ -21,9 +21,9 @@ namespace DataAccessLayer.DAL.Interface
 
         string LoadFavoriteTeam();
 
-         void SaveFavoritePlayers(HashSet<Player> igraci);
+         void SaveFavoritePlayers(IList<Player> igraci);
 
-         List<Player> LoadFavoritePlayer();
+         List<Player> LoadFavoritePlayers();
         
 
     }

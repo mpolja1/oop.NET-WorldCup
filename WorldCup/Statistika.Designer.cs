@@ -37,8 +37,14 @@
             this.btnGoals = new System.Windows.Forms.Button();
             this.bntCards = new System.Windows.Forms.Button();
             this.bntPrint = new System.Windows.Forms.Button();
-            this.printDocument = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocumentPlayers = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialogPlayers = new System.Windows.Forms.PrintPreviewDialog();
+            this.bntPrintMatches = new System.Windows.Forms.Button();
+            this.printPreviewDialogMatches = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocumentMatches = new System.Drawing.Printing.PrintDocument();
+            this.Settings = new System.Windows.Forms.MenuStrip();
+            this.postavkeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Settings.SuspendLayout();
             this.SuspendLayout();
             // 
             // flwAttendence
@@ -89,21 +95,52 @@
             this.bntPrint.UseVisualStyleBackColor = true;
             this.bntPrint.Click += new System.EventHandler(this.bntPrint_Click);
             // 
-            // printDocument
+            // printDocumentPlayers
             // 
-            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            this.printDocumentPlayers.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
             // 
-            // printPreviewDialog
+            // printPreviewDialogPlayers
             // 
-            resources.ApplyResources(this.printPreviewDialog, "printPreviewDialog");
-            this.printPreviewDialog.Document = this.printDocument;
-            this.printPreviewDialog.Name = "printPreviewDialog";
+            resources.ApplyResources(this.printPreviewDialogPlayers, "printPreviewDialogPlayers");
+            this.printPreviewDialogPlayers.Document = this.printDocumentPlayers;
+            this.printPreviewDialogPlayers.Name = "printPreviewDialog";
+            // 
+            // bntPrintMatches
+            // 
+            resources.ApplyResources(this.bntPrintMatches, "bntPrintMatches");
+            this.bntPrintMatches.Name = "bntPrintMatches";
+            this.bntPrintMatches.UseVisualStyleBackColor = true;
+            this.bntPrintMatches.Click += new System.EventHandler(this.bntPrintMatches_Click);
+            // 
+            // printPreviewDialogMatches
+            // 
+            resources.ApplyResources(this.printPreviewDialogMatches, "printPreviewDialogMatches");
+            this.printPreviewDialogMatches.Document = this.printDocumentMatches;
+            this.printPreviewDialogMatches.Name = "printPreviewDialogMatches";
+            // 
+            // printDocumentMatches
+            // 
+            this.printDocumentMatches.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentMatches_PrintPage);
+            // 
+            // Settings
+            // 
+            resources.ApplyResources(this.Settings, "Settings");
+            this.Settings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.postavkeToolStripMenuItem});
+            this.Settings.Name = "Settings";
+            // 
+            // postavkeToolStripMenuItem
+            // 
+            resources.ApplyResources(this.postavkeToolStripMenuItem, "postavkeToolStripMenuItem");
+            this.postavkeToolStripMenuItem.Name = "postavkeToolStripMenuItem";
+            this.postavkeToolStripMenuItem.Click += new System.EventHandler(this.postavkeToolStripMenuItem_Click);
             // 
             // Statistika
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
+            this.Controls.Add(this.bntPrintMatches);
             this.Controls.Add(this.bntPrint);
             this.Controls.Add(this.bntCards);
             this.Controls.Add(this.btnGoals);
@@ -112,9 +149,13 @@
             this.Controls.Add(this.lblAttendance);
             this.Controls.Add(this.flwPlayerStats);
             this.Controls.Add(this.flwAttendence);
+            this.Controls.Add(this.Settings);
+            this.MainMenuStrip = this.Settings;
             this.Name = "Statistika";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Statistika_FormClosing);
             this.Load += new System.EventHandler(this.Statistika_Load);
+            this.Settings.ResumeLayout(false);
+            this.Settings.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,7 +171,12 @@
         private System.Windows.Forms.Button btnGoals;
         private System.Windows.Forms.Button bntCards;
         private System.Windows.Forms.Button bntPrint;
-        private System.Drawing.Printing.PrintDocument printDocument;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
+        private System.Drawing.Printing.PrintDocument printDocumentPlayers;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogPlayers;
+        private System.Windows.Forms.Button bntPrintMatches;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogMatches;
+        private System.Drawing.Printing.PrintDocument printDocumentMatches;
+        private System.Windows.Forms.MenuStrip Settings;
+        private System.Windows.Forms.ToolStripMenuItem postavkeToolStripMenuItem;
     }
 }

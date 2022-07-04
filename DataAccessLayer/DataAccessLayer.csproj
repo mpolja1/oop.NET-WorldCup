@@ -103,8 +103,6 @@
     <Content Include="ResourcsPhotos\SimeVrsaljko.jpg" />
     <None Include="ResourcsPhotos\UnkonwPlayer.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\Enum\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -26,3 +26,6 @@ C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WorldCup-WPF\obj\Debu
 C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup-WPF.csproj.CopyComplete
 C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup-WPF.exe
 C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup-WPF.pdb
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WorldCup-WPF\bin\Debug\hr\WorldCup-WPF.resources.dll
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\hr\WorldCup-WPF.resources.dll
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup_WPF.Properties.Resources.hr.resources

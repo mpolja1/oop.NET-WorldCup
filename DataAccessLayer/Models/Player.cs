@@ -18,6 +18,8 @@ namespace DataAccessLayer.Models
 
         public int BrojZutihKartona { get; set; }
 
+        public string ImagePath { get; set; }
+
         public int CompareTo(Player other)
         {
             return -BrojGolova.CompareTo(other.BrojGolova);

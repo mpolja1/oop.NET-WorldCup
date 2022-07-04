@@ -24,8 +24,8 @@ namespace DataAccessLayer.Models
         public string winner_code { get; set; }
         public TeamMatch home_team { get; set; }
         public TeamMatch away_team { get; set; }
-        public List<HomeTeamEvent> home_team_events { get; set; }
-        public List<AwayTeamEvent> away_team_events { get; set; }
+        public List<Event> home_team_events { get; set; }
+        public List<Event> away_team_events { get; set; }
         public HomeTeamStatistics home_team_statistics { get; set; }
         public AwayTeamStatistics away_team_statistics { get; set; }
         public DateTime last_event_update_at { get; set; }

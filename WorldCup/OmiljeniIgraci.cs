@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -22,6 +23,8 @@ namespace WorldCup
 
         List<string> postavke;
         string country;
+        HashSet<Player> playerList;
+        List<Player> favoritePlayers;
 
         private UCPlayer selectedPlayer;
         private List<UCPlayer> selectedUCPlayers = new List<UCPlayer>();
@@ -40,10 +43,11 @@ namespace WorldCup
 
                 postavke = _fileRepo.LoadPostavke();
                 country = _fileRepo.LoadFavoriteTeam();
-
+                
                 _repo = RepoFactory.GetChampionship(postavke[1]);
+                favoritePlayers = _fileRepo.LoadFavoritePlayers();
                 FillAsyncPlayers(country);
-
+                
             }
             catch (Exception ex)
             {
@@ -54,21 +58,25 @@ namespace WorldCup
 
         private async void FillAsyncPlayers(string country)
         {
-            var data = await _repo.GetPlayers(country);
+            playerList = await _repo.GetPlayers(country);
 
-            foreach (var item in data)
+            foreach (var player in playerList)
             {
-                UCPlayer ucp = new UCPlayer();
-                ucp.NamePlayer = item.name;
-                ucp.ShirtNumber = item.shirt_number;
-                ucp.Position = item.position;
-                ucp.Capitan = item.captain;
+                UCPlayer ucp = new UCPlayer(player);
                 ucp.PlayerImage = MojiResursiPhoto.UnkonwPlayer;
                 ucp.MouseClick += selectPlayer_click;
                 ucp.MouseDown += flpFavoritePlayers_MouseDown;
                 ucp.MouseDoubleClick += choosePicture_click;
                 flpAllPlayers.Controls.Add(ucp);
 
+            }
+            if (favoritePlayers.Count !=0)
+            {
+                foreach (var player in favoritePlayers)
+                {
+                    UCPlayer uCPlayer = new UCPlayer(player);
+                    flpFavoritePlayers.Controls.Add(uCPlayer);
+                }
             }
 
         }
@@ -95,7 +103,7 @@ namespace WorldCup
             {
                 selectedPlayer.PlayerImage = new Bitmap(ofd.FileName);
 
-
+                MessageBox.Show(Path.GetFullPath(ofd.FileName));
             }
         }
 
@@ -144,7 +152,7 @@ namespace WorldCup
             }
             else
             {
-                MessageBox.Show("Maximalni broj igraca je 3");
+                MessageBox.Show(Properties.Resources.MaxIgraca);
             }
 
         }
@@ -170,17 +178,27 @@ namespace WorldCup
             }
             selectedUCPlayers.Clear();
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        public List<Player> ParseUCToPlayers()
         {
-            if (selectedUCPlayers.Count == 0)
+            List<Player> list = new List<Player>();
+            foreach (UCPlayer player in flpFavoritePlayers.Controls)
             {
-                MessageBox.Show("prazno");
+                list.Add(player.ParseFrameToPlayer(player));
             }
-            else
+            return list;
+        }
+        private void OmiljeniIgraci_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
             {
-                MessageBox.Show(selectedUCPlayers.Count.ToString());
+                _fileRepo.SaveFavoritePlayers(ParseUCToPlayers());
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

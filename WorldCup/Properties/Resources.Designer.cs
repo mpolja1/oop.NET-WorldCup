@@ -61,6 +61,24 @@ namespace WorldCup.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Jeste li sigurni?.
+        /// </summary>
+        internal static string Exit {
+            get {
+                return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximala broj igraca je 3.
+        /// </summary>
+        internal static string MaxIgraca {
+            get {
+                return ResourceManager.GetString("MaxIgraca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Potvrda.
         /// </summary>
         internal static string Potvrda {

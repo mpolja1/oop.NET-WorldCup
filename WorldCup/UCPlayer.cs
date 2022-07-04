@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.Models;
+﻿using DataAccessLayer;
+using DataAccessLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,34 +10,48 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace WorldCup
 {
     public partial class UCPlayer : UserControl
     {
-        public UCPlayer()
+        public Player Player { get; set; }
+        public UCPlayer(Player player)
         {
             InitializeComponent();
+            this.Player = player;
+            SetUCPlayer(Player);
         }
 
-     
-        public string NamePlayer { get=>NamePlayer; set=>lblName.Text=value; }
-        public int ShirtNumber { get => ShirtNumber; set => lblShirtNumber.Text = value.ToString(); }
-
-        public string Position { get=>Position; set=>lblPosition.Text = value; }
-
-        public bool Capitan { get => Capitan; set => lblCapitan.Text = value.ToString(); }
         public Image IconFavoritePlayer { get => IconFavoritePlayer; set => pbFavoritePlayer.Image = value; }
-        public Image PlayerImage { get=>PlayerImage; set=> pbPlayerPhoto.Image=value; }
+        public Image PlayerImage { get => PlayerImage; set => pbPlayerPhoto.Image = value; }
 
+        public void SetUCPlayer(Player player)
+        {
+            if (String.IsNullOrEmpty(player.ImagePath))
+            {
+                pbPlayerPhoto.Image = MojiResursiPhoto.UnkonwPlayer;
+            }
 
-        //public static Player ParseFrameToFile(UCPlayer player)
-        //{
-        //    return new Player
-        //    {
-        //        position = player.Position,
-        //        BrojGolova = player.b
-        //    }
+            pbPlayerPhoto.ImageLocation = player.ImagePath;
+            lblName.Text = player.name;
+            lblShirtNumber.Text = player.shirt_number.ToString();
+            lblPosition.Text = player.position;
+            lblCapitan.Text = player.position;
 
-        //}
+        }
+
+        public  Player ParseFrameToPlayer(UCPlayer UCPlayer)
+        {
+            return new Player
+            {
+                position = UCPlayer.Player.position,
+                name = UCPlayer.Player.name,
+                shirt_number = UCPlayer.Player.shirt_number,
+                captain = UCPlayer.Player.captain
+            };
+
+        }
+
     }
 }

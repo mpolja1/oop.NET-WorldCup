@@ -36,7 +36,7 @@ namespace WindowsFormsApp1
 
             //}
             string ime = "DanijeeSubasic";
-            pictureBox1.Image = DohvatiSliku(ime);
+            pictureBox1.ImageLocation = @"C:\Users\Administrator\Downloads\football-shirt.png";
           
         }
 

@@ -133,4 +133,7 @@
   <data name="label2.Text" xml:space="preserve">
     <value>Yellow-cards: </value>
   </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 129</value>
+  </data>
 </root>

@@ -44,7 +44,6 @@
                             <DoubleAnimation From="0"
                                              To="100"
                                              Duration="0:0:5"
-                                             
                                              RepeatBehavior="Forever"/>
                         </Storyboard>
                     </Storyboard>

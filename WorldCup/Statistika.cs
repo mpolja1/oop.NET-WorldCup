@@ -169,17 +169,31 @@ namespace WorldCup
        
         private void Statistika_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            //DialogResult result = MessageBox.Show(Properties.Resources.Exit,"", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+ 
+
+            //if (result == DialogResult.Cancel)
+            //{
+            //    e.Cancel= true;
+   
+            //}
+            //else
+            //{
+            //    Application.Exit();
+            //}
+
+            
 
         }
         private void bntPrint_Click(object sender, EventArgs e)
         {
-            printPreviewDialog.Show();
+            printPreviewDialogPlayers.Show();
         }
 
         private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            e.PageSettings.PaperSize = new PaperSize("A3", 1850, 1500);
+            
             Point point = new Point(0, 0);
             int i = 1;
 
@@ -209,6 +223,33 @@ namespace WorldCup
 
         }
 
+        private void bntPrintMatches_Click(object sender, EventArgs e)
+        {
+            printPreviewDialogMatches.Show();
+        }
 
+        private void printDocumentMatches_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Point point = new Point(0, 0);
+            foreach (UCMatchStats match in flwAttendence.Controls)
+            {
+                Bitmap bitmap = new Bitmap(match.Size.Width, match.Size.Height);
+                match.DrawToBitmap(bitmap, new Rectangle
+                {
+                    Width = match.Size.Width,
+                    Height = match.Size.Height
+                });
+                e.Graphics.DrawImage(bitmap,point);
+                point.Y += match.Height + 10;
+            }
+
+        }
+
+        private void postavkeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Postavke postavke = new Postavke();
+            postavke.Show();
+            this.Close();
+        }
     }
 }

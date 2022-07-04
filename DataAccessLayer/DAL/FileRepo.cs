@@ -92,14 +92,14 @@ namespace DataAccessLayer
                 return reader.ReadLine();
             }
         }
-        public void SaveFavoritePlayers(HashSet<Player>igraci)
+        public void SaveFavoritePlayers(IList<Player>igraci)
         {
             CreateIfNonExists(pathOmiljeniIgraci);
             var json = JsonConvert.SerializeObject(igraci);
           File.WriteAllText(pathOmiljeniIgraci, json);
             //File.WriteAllLines(pathOmiljeniIgraci, igraci.Select(igrac => igrac.FormatForFile()));
         }
-        public  List<Player> LoadFavoritePlayer()
+        public  List<Player> LoadFavoritePlayers()
         {
             List<Player> igraci = new List<Player>();
 

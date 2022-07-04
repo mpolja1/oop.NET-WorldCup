@@ -10,3 +10,17 @@ C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WindowsFormsApp1\obj\
 C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
 C:\Users\Lenovo\Desktop\Mario\oop projekt\oop.NET-WordlCup\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MojiResursi.resources
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form3.resources
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MojiResursi.resources
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb

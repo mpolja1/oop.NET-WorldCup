@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Exit" xml:space="preserve">
+    <value>Jeste li sigurni?</value>
+  </data>
+  <data name="MaxIgraca" xml:space="preserve">
+    <value>Maximala broj igraca je 3</value>
+  </data>
   <data name="Potvrda" xml:space="preserve">
     <value>Potvrda</value>
   </data>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Models
 {
-  abstract  public class Event
+    public class Event
     {
         public int id { get; set; }
         public string type_of_event { get; set; }
