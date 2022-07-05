@@ -24,6 +24,8 @@ namespace DataAccessLayer.DAL.Interface
          void SaveFavoritePlayers(IList<Player> igraci);
 
          List<Player> LoadFavoritePlayers();
+        void SavePlayerImages(Player player);
+        List<Player> LoadPlayerImages();
         
 
     }

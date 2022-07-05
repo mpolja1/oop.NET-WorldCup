@@ -21,6 +21,7 @@ namespace WorldCup_WPF
     /// </summary>
     public partial class PlayerOnField : UserControl
     {
+
         Player Player { get; set; }
         public PlayerOnField(Player player)
         {
@@ -33,12 +34,11 @@ namespace WorldCup_WPF
         {
             lblplayerName.Content = player.name;
             lblplayerNumber.Content = player.shirt_number;
-        }
-
-        private void PlayerOnFieldSelected(object sender, MouseEventArgs e)
-        {
-            PlayerOnField playerOnField = (PlayerOnField)sender;
-
+            if (!string.IsNullOrEmpty(player.ImagePath))
+            {
+                ImagePlayer.Source = new BitmapImage(new Uri(player.ImagePath));
+            }
+            
         }
 
         public override string ToString()

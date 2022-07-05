@@ -36,6 +36,7 @@ namespace WorldCup_WPF
         private List<Match> matches;
         private string _awayTeam;
         private Match _match;
+        private List<Player> playerImages;
 
         string favoriteTeam;
         public PregledReprezent()
@@ -65,7 +66,7 @@ namespace WorldCup_WPF
                 _results = (List<Results>)await _repo.GetResults();
                 teams = await _repo.GetTeams();
                 awayTeams = await _repo.GetAwayTeams(favoriteTeam);
-
+                playerImages = _repoFile.LoadPlayerImages();
                 AppendFavoriteTeams();
                 GetAwayTeams();
                
@@ -236,121 +237,107 @@ namespace WorldCup_WPF
             {
                 foreach (var player in _match.away_team_statistics.starting_eleven)
                 {
-                    GetPlayerStats(player,_match.away_team_events);
-                    PlayerOnField plf = new PlayerOnField(player);
-
-                    plf.MouseEnter += PlayerOnFieldSelected;
-                    plf.MouseLeave += Plf_MouseLeave;
-                    switch (player.position)
-                    {
-                        case "Goalie":
-                            this.golman.Children.Add(plf);
-                            break;
-                        case "Defender":
-                            Obrana.Children.Add(plf);
-                            break;
-                        case "Midfield":
-                            VezniRed.Children.Add(plf);
-                            break;
-                        case "Forward":
-                            Napad.Children.Add(plf);
-                            break;
-
-                        default:
-                            break;
-                    }
-
+                    GetPlayerImage(player);
+                    GetPlayerStats(player, _match.away_team_events);
+                    AppendHomePlayerToField(player);
+                  
+                    
                 }
+
                 foreach (var playeraway in _match.home_team_statistics.starting_eleven)
                 {
+                    GetPlayerImage(playeraway);
                     GetPlayerStats(playeraway, _match.home_team_events);
-                    PlayerOnField plf = new PlayerOnField(playeraway as StartingEleven);
-
-                    plf.MouseEnter += PlayerOnFieldSelected;
-                    plf.MouseLeave += Plf_MouseLeave;
-
-                    switch (playeraway.position)
-                    {
-                        case "Goalie":
-                            AwayGoalie.Children.Add(plf);
-                            break;
-                        case "Defender":
-                            AwayDefender.Children.Add(plf);
-                            break;
-                        case "Midfield":
-                            AwayMidfield.Children.Add(plf);
-                            break;
-                        case "Forward":
-                            AwayForward.Children.Add(plf);
-                            break;
-
-                        default:
-                            break;
-                    }
-
+                    AppendAwayPlayerToField(playeraway);
+                   
                 }
-               
 
             }
             else
             {
                 foreach (var player in _match.home_team_statistics.starting_eleven)
                 {
+                    GetPlayerImage(player);
+                    AppendHomePlayerToField(player);
                     GetPlayerStats(player, _match.home_team_events);
-                    PlayerOnField plf = new PlayerOnField(player);
-
-                    plf.MouseEnter += PlayerOnFieldSelected;
-                    plf.MouseLeave += Plf_MouseLeave;
-                    switch (player.position)
-                    {
-                        case "Goalie":
-                            this.golman.Children.Add(plf);
-                            break;
-                        case "Defender":
-                            Obrana.Children.Add(plf);
-                            break;
-                        case "Midfield":
-                            VezniRed.Children.Add(plf);
-                            break;
-                        case "Forward":
-                            Napad.Children.Add(plf);
-                            break;
-
-                        default:
-                            break;
-                    }
-
+                    
                 }
+
                 foreach (var playeraway in _match.away_team_statistics.starting_eleven)
                 {
+                    GetPlayerImage(playeraway);
+                    AppendAwayPlayerToField(playeraway);
                     GetPlayerStats(playeraway, _match.away_team_events);
-                    PlayerOnField plf = new PlayerOnField(playeraway as StartingEleven);
+                   
+                }
 
-                    plf.MouseEnter += PlayerOnFieldSelected;
-                    plf.MouseLeave += Plf_MouseLeave;
+            }
+        }
 
-                    switch (playeraway.position)
-                    {
-                        case "Goalie":
-                            AwayGoalie.Children.Add(plf);
-                            break;
-                        case "Defender":
-                            AwayDefender.Children.Add(plf);
-                            break;
-                        case "Midfield":
-                            AwayMidfield.Children.Add(plf);
-                            break;
-                        case "Forward":
-                            AwayForward.Children.Add(plf);
-                            break;
-
-                        default:
-                            break;
-                    }
-
+        private void GetPlayerImage(StartingEleven player)
+        {
+            foreach (var imagePlayer in playerImages)
+            {
+                if (imagePlayer.name.Equals(player.name))
+                {
+                    player.ImagePath = imagePlayer.ImagePath;
+                    break;
                 }
             }
+        }
 
+        private void AppendAwayPlayerToField(StartingEleven playeraway)
+        {
+            PlayerOnField plf = new PlayerOnField(playeraway as StartingEleven);
+
+            plf.MouseEnter += PlayerOnFieldSelected;
+            plf.MouseLeave += Plf_MouseLeave;
+
+            switch (playeraway.position)
+            {
+                case "Goalie":
+                    AwayGoalie.Children.Add(plf);
+                    break;
+                case "Defender":
+                    AwayDefender.Children.Add(plf);
+                    break;
+                case "Midfield":
+                    AwayMidfield.Children.Add(plf);
+                    break;
+                case "Forward":
+                    AwayForward.Children.Add(plf);
+                    break;
+
+                default:
+                    break;
+            }
+
+        }
+
+        private void AppendHomePlayerToField(StartingEleven player)
+        {
+            PlayerOnField plf = new PlayerOnField(player);
+
+            plf.MouseEnter += PlayerOnFieldSelected;
+            plf.MouseLeave += Plf_MouseLeave;
+            switch (player.position)
+            {
+                case "Goalie":
+                    this.golman.Children.Add(plf);
+                    break;
+                case "Defender":
+                    Obrana.Children.Add(plf);
+                    break;
+                case "Midfield":
+                    VezniRed.Children.Add(plf);
+                    break;
+                case "Forward":
+                    Napad.Children.Add(plf);
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private void Plf_MouseLeave(object sender, MouseEventArgs e)
@@ -360,7 +347,8 @@ namespace WorldCup_WPF
 
         private void GetPlayerStats(Player player, List<Event> matchEvents)
         {
-
+            player.BrojGolova = 0;
+            player.BrojZutihKartona = 0;
             foreach (var eventt in matchEvents)
             {
                 if (eventt.type_of_event == "goal" || eventt.type_of_event == "goal-penalty")

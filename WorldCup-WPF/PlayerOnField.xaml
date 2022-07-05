@@ -15,7 +15,7 @@
             <RowDefinition Height="auto"/>
            
         </Grid.RowDefinitions>
-        <Image Grid.Row="0" Source="shirt-icon.jpg" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <Image x:Name="ImagePlayer" Grid.Row="0" Source="shirt-icon.jpg" HorizontalAlignment="Center" VerticalAlignment="Bottom">
   
         </Image>
         <Label Name="lblplayerNumber"  FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>

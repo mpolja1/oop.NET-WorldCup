@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,11 +19,15 @@ namespace WorldCup
 {
     public partial class OmiljeniIgraci : Form
     {
+
+
+        string startupPath = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"slike\");
         private IRepo _repo;
         private IFile _fileRepo;
 
         List<string> postavke;
         string country;
+        List<Player> playerImagesToSave = new List<Player>();
         HashSet<Player> playerList;
         List<Player> favoritePlayers;
 
@@ -43,11 +48,11 @@ namespace WorldCup
 
                 postavke = _fileRepo.LoadPostavke();
                 country = _fileRepo.LoadFavoriteTeam();
-                
+
                 _repo = RepoFactory.GetChampionship(postavke[1]);
                 favoritePlayers = _fileRepo.LoadFavoritePlayers();
                 FillAsyncPlayers(country);
-                
+
             }
             catch (Exception ex)
             {
@@ -59,51 +64,83 @@ namespace WorldCup
         private async void FillAsyncPlayers(string country)
         {
             playerList = await _repo.GetPlayers(country);
+            List<Player> images = _fileRepo.LoadPlayerImages();
+            UpdatePlayerImagePath(playerList, images);
 
-            foreach (var player in playerList)
-            {
-                UCPlayer ucp = new UCPlayer(player);
-                ucp.PlayerImage = MojiResursiPhoto.UnkonwPlayer;
-                ucp.MouseClick += selectPlayer_click;
-                ucp.MouseDown += flpFavoritePlayers_MouseDown;
-                ucp.MouseDoubleClick += choosePicture_click;
-                flpAllPlayers.Controls.Add(ucp);
-
-            }
-            if (favoritePlayers.Count !=0)
-            {
-                foreach (var player in favoritePlayers)
+           
+            
+                foreach (var player in playerList)
                 {
-                    UCPlayer uCPlayer = new UCPlayer(player);
-                    flpFavoritePlayers.Controls.Add(uCPlayer);
+                    UCPlayer ucp = new UCPlayer(player);
+                    ucp.MouseClick += selectPlayer_click;
+                    ucp.MouseDown += flpFavoritePlayers_MouseDown;
+                    ucp.MouseDoubleClick += choosePicture_click;
+                    flpAllPlayers.Controls.Add(ucp); 
+                }
+                if (favoritePlayers.Count != 0)
+                {
+                    foreach (var player in favoritePlayers)
+                    {
+                        UCPlayer uCPlayer = new UCPlayer(player);
+                        flpFavoritePlayers.Controls.Add(uCPlayer);
+                    }
+                } 
+            
+
+        }
+
+        private void UpdatePlayerImagePath(HashSet<Player> playerList, List<Player> images)
+        {
+            foreach (var item in images)
+            {
+                foreach (var igrac in playerList)
+                {
+                    if (item.name == igrac.name)
+                    {
+                        igrac.ImagePath = item.ImagePath;
+                    }
                 }
             }
-
         }
 
         private void flpFavoritePlayers_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && selectedPlayer != null)
             {
                 selectedPlayer.DoDragDrop(selectedPlayer, DragDropEffects.Move);
 
             }
         }
-   
+
         private void choosePicture_click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Pictures|*.bmp;*.jpg;*.jpeg;*.png;|All files|*.*";
-            ofd.InitialDirectory = Application.StartupPath;
+            OpenFileDialog filedialog = new OpenFileDialog();
+            filedialog.Filter = "Pictures|*.bmp;*.jpg;*.jpeg;*.png;|All files|*.*";
+            if (!Directory.Exists(startupPath))
+            {
+                Directory.CreateDirectory(startupPath);
+            }
 
             selectedPlayer = (UCPlayer)sender;
 
 
-            if (ofd.ShowDialog() == DialogResult.OK)
+            if (filedialog.ShowDialog() == DialogResult.OK)
             {
-                selectedPlayer.PlayerImage = new Bitmap(ofd.FileName);
 
-                MessageBox.Show(Path.GetFullPath(ofd.FileName));
+                string iName = filedialog.SafeFileName;
+                string filepath = filedialog.FileName;
+
+                if (!File.Exists(startupPath + iName))
+                {
+                    File.Copy(filepath, startupPath + iName);
+                }
+                selectedPlayer.Player.ImagePath = startupPath + iName;
+                selectedPlayer.PlayerImage = new Bitmap(filedialog.OpenFile());
+                _fileRepo.SavePlayerImages(selectedPlayer.Player);
+            }
+            else
+            {
+                filedialog.Dispose();
             }
         }
 
@@ -125,7 +162,7 @@ namespace WorldCup
                     selectedPlayer.BackColor = Color.Yellow;
                 }
             }
-            if (!selectedUCPlayers.Contains(selectedPlayer) && selectedPlayer.BackColor == Color.Yellow)
+            if (!selectedUCPlayers.Contains(selectedPlayer) && selectedUCPlayers != null)
             {
                 selectedUCPlayers.Add(selectedPlayer);
             }
@@ -192,6 +229,8 @@ namespace WorldCup
             try
             {
                 _fileRepo.SaveFavoritePlayers(ParseUCToPlayers());
+                
+                
             }
             catch (Exception ex)
             {

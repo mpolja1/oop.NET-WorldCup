@@ -18,9 +18,10 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
+
         <Image Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"   MaxHeight="320"  Source="worldcup_trophy.png" Grid.Column="0" Grid.Row="0"/>
         <StackPanel   VerticalAlignment="Center" Grid.Column="0" Grid.Row="1">
-
+            
             <Button Style="{StaticResource ResourceKey=MainButton}"  Click="btnPostavke_click" 
                     Content="{x:Static local:Resources.Settings}"/>
             <Button Style="{StaticResource ResourceKey=MainButton}" Click="btnPregledReprezentacije_click" 

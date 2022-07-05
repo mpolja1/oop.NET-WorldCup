@@ -17,6 +17,7 @@ namespace DataAccessLayer
         private  string pathOmiljeniTeam = DIR + "omiljenaekipa.txt";
         private const string pathOmiljeniIgraci =DIR + "omiljeniigraci.txt";
         private const string pathResolution = DIR +"resolution.txt";
+        private const string pathPlayerImages = DIR +"playerImages.txt";
 
 
         public FileRepo()
@@ -110,6 +111,40 @@ namespace DataAccessLayer
             return igraci;
         }
 
+        public void SavePlayerImages(Player players)
+        {
+            CreateIfNonExists(pathPlayerImages);
+            var json = JsonConvert.SerializeObject(players);
+            File.AppendAllText(pathPlayerImages, json + Environment.NewLine);
 
+        }
+
+        public List<Player> LoadPlayerImages()
+        {
+            
+            List<Player> igraci = new List<Player>();
+
+
+            var serializer = new JsonSerializer();
+            string json = File.ReadAllText(pathPlayerImages);
+            using (var sr = new StringReader(json))
+            {
+                using (var jsonTextReader = new JsonTextReader(sr))
+                {
+                    jsonTextReader.SupportMultipleContent = true;
+                    while (jsonTextReader.Read())
+                    {
+                        var data = serializer.Deserialize<Player>(jsonTextReader);
+                        igraci.Add(data);
+                    }
+
+                }
+            }
+
+            return igraci;
+
+
+           
+        }
     }
 }

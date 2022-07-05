@@ -37,7 +37,7 @@ namespace WorldCup
             lblName.Text = player.name;
             lblShirtNumber.Text = player.shirt_number.ToString();
             lblPosition.Text = player.position;
-            lblCapitan.Text = player.position;
+            lblCapitan.Text = player.captain ? "Capitan" : "";
 
         }
 
@@ -48,9 +48,15 @@ namespace WorldCup
                 position = UCPlayer.Player.position,
                 name = UCPlayer.Player.name,
                 shirt_number = UCPlayer.Player.shirt_number,
-                captain = UCPlayer.Player.captain
+                captain = UCPlayer.Player.captain,
+                ImagePath = UCPlayer.Player.ImagePath
+                
             };
 
+        }
+        public override string ToString()
+        {
+            return Player.name;
         }
 
     }
