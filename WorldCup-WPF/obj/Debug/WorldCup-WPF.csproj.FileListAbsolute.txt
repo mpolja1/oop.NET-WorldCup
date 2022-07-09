@@ -29,3 +29,34 @@ C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WorldCup-WPF\obj\Debu
 C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WorldCup-WPF\bin\Debug\hr\WorldCup-WPF.resources.dll
 C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\hr\WorldCup-WPF.resources.dll
 C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup_WPF.Properties.Resources.hr.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\bin\Debug\WorldCup-WPF.exe.config
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\bin\Debug\WorldCup-WPF.exe
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\bin\Debug\WorldCup-WPF.pdb
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\bin\Debug\hr\WorldCup-WPF.resources.dll
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\bin\Debug\DataAccessLayer.dll
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\bin\Debug\DataAccessLayer.pdb
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup-WPF.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup-WPF.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\MainWindow.g.cs
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\PlayerOnField.g.cs
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\Postavke.g.cs
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\PregledReprezent.g.cs
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\App.g.cs
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup-WPF_MarkupCompile.cache
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup-WPF_MarkupCompile.lref
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\App.baml
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\MainWindow.baml
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\PlayerOnField.baml
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\Postavke.baml
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\PregledReprezent.baml
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup-WPF.g.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup_WPF.Properties.Resources.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup_WPF.Properties.Resources.hr.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup-WPF.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup-WPF.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\hr\WorldCup-WPF.resources.dll
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup-WPF.csproj.CopyComplete
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup-WPF.exe
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup-WPF\obj\Debug\WorldCup-WPF.pdb

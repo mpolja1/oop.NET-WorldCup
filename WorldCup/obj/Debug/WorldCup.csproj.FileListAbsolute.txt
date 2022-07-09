@@ -73,3 +73,34 @@ C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WorldCup\obj\Debug\en
 C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.csproj.CopyComplete
 C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.exe
 C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.pdb
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\bin\Debug\WorldCup.exe.config
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\bin\Debug\WorldCup.exe
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\bin\Debug\WorldCup.pdb
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\bin\Debug\en\WorldCup.resources.dll
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\bin\Debug\DataAccessLayer.dll
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\bin\Debug\DataAccessLayer.pdb
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.OdabirTima.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.OmiljeniIgraci.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.Postavke.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.Properties.Resources.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.Statistika.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.UCMatchStats.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.UCPlayer.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.UCPlayerStats.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.OdabirTima.en.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.OmiljeniIgraci.en.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.Postavke.en.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.Properties.Resources.en.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.Statistika.en.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.UCMatchStats.en.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.UCPlayerStats.en.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\en\WorldCup.resources.dll
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.csproj.CopyComplete
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.exe
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\WorldCup\obj\Debug\WorldCup.pdb

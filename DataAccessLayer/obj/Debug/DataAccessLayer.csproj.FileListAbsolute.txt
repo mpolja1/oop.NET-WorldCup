@@ -29,3 +29,14 @@ C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\DataAccessLayer\obj\D
 C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Administrator\Desktop\projekt c#\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\DataAccessLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\DataAccessLayer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.MojiResursiPhoto.resources
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Administrator\Desktop\PREDMETI-faks\Projekti\c#\OOP-WorldCup\oop.NET-WordlCup\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

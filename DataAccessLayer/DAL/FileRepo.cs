@@ -89,6 +89,7 @@ namespace DataAccessLayer
         }
         public  string LoadFavoriteTeam()
         {
+            CreateIfNonExists(pathOmiljeniTeam);
             using(StreamReader reader = new StreamReader(pathOmiljeniTeam))
             {
                 return reader.ReadLine();
@@ -99,7 +100,7 @@ namespace DataAccessLayer
             CreateIfNonExists(pathOmiljeniIgraci);
             var json = JsonConvert.SerializeObject(igraci);
           File.WriteAllText(pathOmiljeniIgraci, json);
-            //File.WriteAllLines(pathOmiljeniIgraci, igraci.Select(igrac => igrac.FormatForFile()));
+           
         }
         public  List<Player> LoadFavoritePlayers()
         {
