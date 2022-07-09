@@ -9,6 +9,7 @@ namespace DataAccessLayer.DAL
 {
     public static class RepoFactory
     {
+
         public static IFile GetFileRepository() => new FileRepo();
 
         public static IRepo GetChampionship(string gender)

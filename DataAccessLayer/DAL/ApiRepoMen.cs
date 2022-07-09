@@ -13,7 +13,7 @@ namespace DataAccessLayer
 {
     public class ApiRepoMen : IRepo
     {
-        //private const string apiUrlGroupResults = @"https://world-cup-json-2018.herokuapp.com/teams/results";
+        
         private const string apiUrlMatches = @"https://world-cup-json-2018.herokuapp.com/matches/";
         private const string apiUrlTeams = @"http://world-cup-json-2018.herokuapp.com/teams/";
         private const string apiUrlResults = @"https://world-cup-json-2018.herokuapp.com/teams/results";

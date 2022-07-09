@@ -12,12 +12,12 @@ namespace DataAccessLayer
 {
     public class FileRepo : IFile
     {
-        private const  string DIR = @"C:\";
-        private string pathJezikPrvenstvo = DIR + "postavke.txt";
+        private static string DIR = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"Settings\");
+        private  string pathJezikPrvenstvo = DIR + "postavke.txt";
         private  string pathOmiljeniTeam = DIR + "omiljenaekipa.txt";
-        private const string pathOmiljeniIgraci =DIR + "omiljeniigraci.txt";
-        private const string pathResolution = DIR +"resolution.txt";
-        private const string pathPlayerImages = DIR +"playerImages.txt";
+        private  string pathOmiljeniIgraci =DIR + "omiljeniigraci.txt";
+        private  string pathResolution = DIR +"resolution.txt";
+        private  string pathPlayerImages = DIR +"playerImages.txt";
 
 
         public FileRepo()
@@ -67,6 +67,7 @@ namespace DataAccessLayer
         }
         public  List<string>LoadPostavke()
         {
+            CreateIfNonExists(pathJezikPrvenstvo);
             List<string> data = new List<string>(); 
             using (StreamReader reader = new StreamReader(pathJezikPrvenstvo))
             {
@@ -102,6 +103,7 @@ namespace DataAccessLayer
         }
         public  List<Player> LoadFavoritePlayers()
         {
+            CreateIfNonExists(pathOmiljeniIgraci);
             List<Player> igraci = new List<Player>();
 
             string lines = File.ReadAllText(pathOmiljeniIgraci);
@@ -124,7 +126,7 @@ namespace DataAccessLayer
             
             List<Player> igraci = new List<Player>();
 
-
+            CreateIfNonExists(pathPlayerImages);
             var serializer = new JsonSerializer();
             string json = File.ReadAllText(pathPlayerImages);
             using (var sr = new StringReader(json))

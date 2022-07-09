@@ -77,7 +77,7 @@ namespace WorldCup
                     ucp.MouseDoubleClick += choosePicture_click;
                     flpAllPlayers.Controls.Add(ucp); 
                 }
-                if (favoritePlayers.Count != 0)
+                if (favoritePlayers != null)
                 {
                     foreach (var player in favoritePlayers)
                     {
@@ -129,6 +129,8 @@ namespace WorldCup
 
                 string iName = filedialog.SafeFileName;
                 string filepath = filedialog.FileName;
+
+             
 
                 if (!File.Exists(startupPath + iName))
                 {

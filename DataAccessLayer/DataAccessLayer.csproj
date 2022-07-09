@@ -54,7 +54,6 @@
     <Compile Include="DAL\JsonMen.cs" />
     <Compile Include="DAL\JsonWomen.cs" />
     <Compile Include="Models\Event.cs" />
-    <Compile Include="Models\GroupResults.cs" />
     <Compile Include="Models\Match.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Results.cs" />

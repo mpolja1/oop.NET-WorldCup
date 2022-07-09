@@ -124,15 +124,15 @@
             // 
             // Settings
             // 
-            resources.ApplyResources(this.Settings, "Settings");
             this.Settings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.postavkeToolStripMenuItem});
+            resources.ApplyResources(this.Settings, "Settings");
             this.Settings.Name = "Settings";
             // 
             // postavkeToolStripMenuItem
             // 
-            resources.ApplyResources(this.postavkeToolStripMenuItem, "postavkeToolStripMenuItem");
             this.postavkeToolStripMenuItem.Name = "postavkeToolStripMenuItem";
+            resources.ApplyResources(this.postavkeToolStripMenuItem, "postavkeToolStripMenuItem");
             this.postavkeToolStripMenuItem.Click += new System.EventHandler(this.postavkeToolStripMenuItem_Click);
             // 
             // Statistika

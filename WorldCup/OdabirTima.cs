@@ -87,16 +87,12 @@ namespace WorldCup
         private void btnSpremi_Click(object sender, EventArgs e)
         {
             Team team = cbTeamList.SelectedItem as Team;
-            _repoFile.SaveFavoriteTeam(team);
-            
-
+            _repoFile.SaveFavoriteTeam(team);         
 
             Form form = new OmiljeniIgraci();
             form.Show();
-            
-            
-            
-            
+           
+
         }
     }
 }

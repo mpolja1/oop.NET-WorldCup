@@ -11,43 +11,72 @@ namespace DataAccessLayer
 {
     public class JsonWomen : IRepo
     {
-        private const string pathGroupResults = @"C:\Users\Administrator\Desktop\json-endpoints\worldcup.sfg.io\women\group_results.json";
-        private const string pathMatches = @"C:\Users\Administrator\Desktop\json-endpoints\worldcup.sfg.io\women\matches.json";
-        private const string pathResults = @"C:\Users\Administrator\Desktop\json-endpoints\worldcup.sfg.io\women\results.json";
-        private const string pathTeams = @"C:\Users\Administrator\Desktop\json-endpoints\worldcup.sfg.io\women\teams.json";
+        private static string DIR = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"json-endpoints\worldcup.sfg.io\women\");
 
-        public List<Event> GetAllEvents()
-        {
-            throw new NotImplementedException();
-        }
+        private string pathMatches = DIR + "matches.json";
+        private string pathResults = DIR + "results.json";
+        private string pathTeams = DIR + "teams.json";
 
-        public List<Event> GetAllEvents(string country, List<Match> matches)
+        public async Task<List<Event>> GetAllEvents(string country, List<Match> mec)
         {
-            throw new NotImplementedException();
-        }
+            List<Event> events = new List<Event>();
 
-        public Task<List<TeamMatch>> GetAwayTeams(string country)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<GroupResults> GetGroupsResults()
-        {
-            List<GroupResults> list = new List<GroupResults>();
-            using (StreamReader r = new StreamReader(pathGroupResults))
+            foreach (var item in mec)
             {
-                string json = r.ReadToEnd();
-                list = JsonConvert.DeserializeObject<List<GroupResults>>(json);
+                if (item.home_team_country == country || item.away_team_country == country)
+                {
+                    foreach (var dogadaj in item.home_team_events)
+                    {
+                        events.Add(dogadaj);
+                    }
+                    foreach (var dog in item.away_team_events)
+                    {
+                        events.Add(dog);
+                    }
+                }
             }
-            return list;
+
+            return await Task.Run(() => events);
         }
 
-        public Task<Match> GetMatch(string country1, string country2)
+        public async Task<List<TeamMatch>> GetAwayTeams(string country)
         {
-            throw new NotImplementedException();
+            List<TeamMatch> opponents = new List<TeamMatch>();
+            List<Match> matches = await GetMatches();
+
+            foreach (var match in matches)
+            {
+                if (match.home_team.country == country || match.away_team.country == country)
+                {
+                    if (match.home_team.country != country)
+                    {
+                        opponents.Add(match.home_team);
+                    }
+                    else
+                    {
+                        opponents.Add(match.away_team);
+                    }
+                }
+            }
+            return await Task.Run(() => opponents);
         }
 
-        public List<Match> GetMatches()
+
+        public async Task<Match> GetMatch(string country1, string country2)
+        {
+            IList<Match> matches = await GetMatches();
+            Match match = new Match();
+            foreach (var mec in matches)
+            {
+                if (mec.home_team_country == country1 && mec.away_team_country == country2 || mec.home_team_country == country2 && mec.away_team_country == country1)
+                {
+                    match = mec;
+                }
+            }
+            return await Task.Run(() => match);
+        }
+
+        public async Task<List<Match>> GetMatches()
         {
             List<Match> list = new List<Match>();
             using (StreamReader r = new StreamReader(pathMatches))
@@ -55,20 +84,51 @@ namespace DataAccessLayer
                 string json = r.ReadToEnd();
                 list = JsonConvert.DeserializeObject<List<Match>>(json);
             }
-            return list;
+            return await Task.Run(() =>
+            {
+                return list;
+            });
         }
 
-        public List<Match> GetMatchesByCountry(string country)
+        public async Task<List<Match>> GetMatchesByCountry(string country)
         {
-            throw new NotImplementedException();
+            List<Match> teams = new List<Match>();
+            List<Match> matches = await GetMatches();
+            foreach (var mec in matches)
+            {
+                if (mec.home_team_country == country || mec.away_team_country == country)
+                {
+                    teams.Add(mec);
+                }
+            }
+            return await Task.Run(() => teams);
         }
 
-        public HashSet<Player> GetPlayers(string name)
+        public async Task<HashSet<Player>> GetPlayers(string country)
         {
-            throw new NotImplementedException();
+            HashSet<Player> matchesSet = new HashSet<Player>();
+            List<Match> matches = await GetMatches();
+
+            foreach (Match item in matches)
+            {
+                if (item.home_team_statistics.country == country || item.home_team_statistics.country == country)
+                {
+                    foreach (var igrac in item.home_team_statistics.starting_eleven)
+                    {
+                        matchesSet.Add(igrac);
+                    }
+                    foreach (var igrac in item.home_team_statistics.substitutes)
+                    {
+                        matchesSet.Add(igrac);
+                    }
+
+                }
+            }
+
+            return await Task.Run(() => matchesSet);
         }
 
-        public List<Results> GetResults()
+        public async Task<IList<Results>> GetResults()
         {
             List<Results> list = new List<Results>();
             using (StreamReader r = new StreamReader(pathResults))
@@ -76,15 +136,31 @@ namespace DataAccessLayer
                 string json = r.ReadToEnd();
                 list = JsonConvert.DeserializeObject<List<Results>>(json);
             }
-            return list;
+            return await Task.Run(() =>
+            {
+                return list;
+            });
         }
 
-        public Task<List<Player>> GetStartingEleven(string country1, string country2)
+        public async Task<List<Player>> GetStartingEleven(string country1, string country2)
         {
-            throw new NotImplementedException();
+            List<Player> players = new List<Player>();
+            List<Match> matches = await GetMatches();
+
+            foreach (var match in matches)
+            {
+                if (match.home_team.country == country1 && match.away_team.country == country2 || match.home_team_country == country2 && match.away_team_country == country1)
+                {
+                    foreach (var player in match.home_team_statistics.starting_eleven)
+                    {
+                        players.Add(player);
+                    }
+                }
+            }
+            return await Task.Run(() => players);
         }
 
-        public List<Team> GetTeams()
+        public async Task<List<Team>> GetTeams()
         {
             List<Team> list = new List<Team>();
             using (StreamReader r = new StreamReader(pathTeams))
@@ -92,39 +168,14 @@ namespace DataAccessLayer
                 string json = r.ReadToEnd();
                 list = JsonConvert.DeserializeObject<List<Team>>(json);
             }
-            return list;
+            return await Task.Run(() =>
+            {
+                return list;
+            });
         }
 
-        Task<List<Event>> IRepo.GetAllEvents(string country, List<Match> mec)
-        {
-            throw new NotImplementedException();
-        }
 
-        Task<List<Match>> IRepo.GetMatches()
-        {
-            throw new NotImplementedException();
-        }
 
-        Task<List<Match>> IRepo.GetMatchesByCountry(string country)
-        {
-            throw new NotImplementedException();
-        }
 
-        Task<HashSet<Player>> IRepo.GetPlayers(string name)
-        {
-            throw new NotImplementedException();
-        }
-
-        
-
-        Task<IList<Results>> IRepo.GetResults()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<Team>>IRepo.GetTeams()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

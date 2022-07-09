@@ -1,4 +1,6 @@
 ﻿using DataAccessLayer;
+using DataAccessLayer.DAL;
+using DataAccessLayer.DAL.Interface;
 using DataAccessLayer.Models;
 using System;
 using System.Collections.Generic;
@@ -19,32 +21,28 @@ namespace WorldCup
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Postavke());
+            //Application.Run(new Postavke());
 
-            //try
-            //{
-            //    List<string> postavke = FileRepo.LoadPostavke();
-            //    string team = FileRepo.LoadFavoriteTeam();
-            //    List<Player> players = FileRepo.LoadFavoritePlayer();
+            try
+            {
+                IFile fileRepo = RepoFactory.GetFileRepository();
+                List<string> postavke = fileRepo.LoadPostavke();
 
-            //    if (postavke.Count > 0)
-            //    {
-            //        Application.Run(new Postavke());
-            //    }
-            //    else if (!String.IsNullOrEmpty(team))
-            //    {
-            //        Application.Run(new OdabirTima());
-            //    }
-            //    else if (players.Count > 0)
-            //    {
-            //        Application.Run(new OmiljeniIgraci());
-            //    }
-            //}
-            //catch (Exception)
-            //{
+                if (postavke == null)
+                {
+                    Application.Run(new Postavke());
+                }
+                else 
+                {
+                    Application.Run(new OdabirTima());
+                }
+                
+            }
+            catch (Exception ex)
+            {
 
-            //    throw new Exception();
-            //}
+                MessageBox.Show(ex.Message);
+            }
 
 
         }

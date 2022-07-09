@@ -94,8 +94,8 @@ namespace WorldCup_WPF
                     break;
 
                 default:
-                    Application.Current.MainWindow.Width = 500;
-                    Application.Current.MainWindow.Height = 500;
+                    Application.Current.MainWindow.Width = 600;
+                    Application.Current.MainWindow.Height = 600;
                     break;
             }
         }
@@ -108,12 +108,6 @@ namespace WorldCup_WPF
         {
             Main.Content = new PregledReprezent();
         }
-
-        private void btnPocetnePostave_click(object sender, RoutedEventArgs e)
-        {
-            //Main.Content = new Postave();
-        }
-
 
         private void bntExit_Click(object sender, RoutedEventArgs e)
         {

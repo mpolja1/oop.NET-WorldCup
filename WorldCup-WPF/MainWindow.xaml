@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldCup_WPF.Properties"
         mc:Ignorable="d"
-        Title="{x:Static local:Resources.Title}" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        Title="{x:Static local:Resources.Title}" Height="556" Width="818" WindowStartupLocation="CenterScreen"
         Icon="worldcup_trophy.png"
         Loaded="Window_Loaded" >
 
@@ -21,13 +21,13 @@
 
         <Image Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"   MaxHeight="320"  Source="worldcup_trophy.png" Grid.Column="0" Grid.Row="0"/>
         <StackPanel   VerticalAlignment="Center" Grid.Column="0" Grid.Row="1">
-            
+
             <Button Style="{StaticResource ResourceKey=MainButton}"  Click="btnPostavke_click" 
                     Content="{x:Static local:Resources.Settings}"/>
             <Button Style="{StaticResource ResourceKey=MainButton}" Click="btnPregledReprezentacije_click" 
                     Content="{x:Static local:Resources.Results}"/>
             <Button  Style="{StaticResource ResourceKey=MainButton}" Click="bntExit_Click"
-                     Content="{x:Static local:Resources.Exit}"/> 
+                     Content="{x:Static local:Resources.Exit}"/>
         </StackPanel>
         <Frame Grid.Column="1" Grid.RowSpan="2" x:Name="Main" NavigationUIVisibility="Hidden">
 

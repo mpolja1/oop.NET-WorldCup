@@ -169,21 +169,18 @@ namespace WorldCup
        
         private void Statistika_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //DialogResult result = MessageBox.Show(Properties.Resources.Exit,"", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show(Properties.Resources.Exit, "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
- 
-
-            //if (result == DialogResult.Cancel)
-            //{
-            //    e.Cancel= true;
-   
-            //}
-            //else
-            //{
-            //    Application.Exit();
-            //}
-
-            
+            if (result == DialogResult.OK)
+            {
+                this.FormClosing -= Statistika_FormClosing;
+                Application.Exit();
+             
+            }
+            else
+            {
+                e.Cancel = true;
+            }
 
         }
         private void bntPrint_Click(object sender, EventArgs e)
@@ -225,7 +222,15 @@ namespace WorldCup
 
         private void bntPrintMatches_Click(object sender, EventArgs e)
         {
-            printPreviewDialogMatches.Show();
+            try
+            {
+                printPreviewDialogMatches.Show();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void printDocumentMatches_PrintPage(object sender, PrintPageEventArgs e)
@@ -249,6 +254,7 @@ namespace WorldCup
         {
             Postavke postavke = new Postavke();
             postavke.Show();
+            this.FormClosing -= Statistika_FormClosing;
             this.Close();
         }
     }
